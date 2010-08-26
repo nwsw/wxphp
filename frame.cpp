@@ -28519,7 +28519,8 @@ PHP_METHOD(php_wxEvtHandler, Connect)
         {
                 zend_hash_index_find(HASH_OF(fc),0,(void**)&fc_obj);
                 zend_hash_index_find(HASH_OF(fc),1,(void**)&fc_name);
-                ZVAL_ADDREF(*fc_obj);
+                //ZVAL_ADDREF(*fc_obj);
+                Z_ADDREF_P(*fc_obj);
 
 
                 ct = (*fc_name)->value.str.val;

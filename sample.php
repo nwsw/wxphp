@@ -1,6 +1,6 @@
 <?php
-	//dl('php_wxWidgets.dll');
-	dl('wxwidgets.so');
+	dl('php_wxWidgets.dll');
+	//dl('wxwidgets.so');
 	
 	class mainFrame extends wxFrame
 	{
