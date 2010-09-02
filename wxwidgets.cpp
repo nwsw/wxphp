@@ -124,8 +124,6 @@ zend_class_entry *php_wxListEvent_entry;
 int le_wxListEvent;
 zend_class_entry *php_wxComboBox_entry;
 int le_wxComboBox;
-zend_class_entry *php_wxPrinter_entry;
-int le_wxPrinter;
 zend_class_entry *php_wxPrintout_entry;
 int le_wxPrintout;
 zend_class_entry *php_wxDC_entry;
@@ -176,8 +174,6 @@ zend_class_entry *php_wxToggleButton_entry;
 int le_wxToggleButton;
 zend_class_entry *php_wxChoice_entry;
 int le_wxChoice;
-zend_class_entry *php_wxStyledTextCtrl_entry;
-int le_wxStyledTextCtrl;
 zend_class_entry *php_wxImageList_entry;
 int le_wxImageList;
 zend_class_entry *php_wxXmlResource_entry;
@@ -196,6 +192,14 @@ zend_class_entry *php_wxHtmlHelpController_entry;
 int le_wxHtmlHelpController;
 zend_class_entry *php_wxTaskBarIcon_entry;
 int le_wxTaskBarIcon;
+zend_class_entry *php_wxScrolledWindow_entry;
+int le_wxScrolledWindow;
+zend_class_entry *php_wxSpinEvent_entry;
+int le_wxSpinEvent;
+zend_class_entry *php_wxScrollEvent_entry;
+int le_wxScrollEvent;
+zend_class_entry *php_wxSpinButton_entry;
+int le_wxSpinButton;
 
 // <--- entries
 
@@ -636,13 +640,6 @@ PHP_FUNCTION(php_wxDynamicCast){
                                 add_property_resource(return_value, _wxResource, id_to_find);
                                 return;
                         }
-                        else if(!strcmp(_argStr0,"wxPrinter")){
-                                object_init_ex(return_value,php_wxPrinter_entry);
-                                wxPrinter* ret = wxDynamicCast(_ptrObj0,wxPrinter_php);
-                                long id_to_find = zend_list_insert(ret, le_wxPrinter);
-                                add_property_resource(return_value, _wxResource, id_to_find);
-                                return;
-                        }
                         else if(!strcmp(_argStr0,"wxPrintout")){
                                 object_init_ex(return_value,php_wxPrintout_entry);
                                 wxPrintout* ret = wxDynamicCast(_ptrObj0,wxPrintout_php);
@@ -797,13 +794,6 @@ PHP_FUNCTION(php_wxDynamicCast){
                                 add_property_resource(return_value, _wxResource, id_to_find);
                                 return;
                         }
-                        else if(!strcmp(_argStr0,"wxStyledTextCtrl")){
-                                object_init_ex(return_value,php_wxStyledTextCtrl_entry);
-                                wxStyledTextCtrl* ret = wxDynamicCast(_ptrObj0,wxStyledTextCtrl_php);
-                                long id_to_find = zend_list_insert(ret, le_wxStyledTextCtrl);
-                                add_property_resource(return_value, _wxResource, id_to_find);
-                                return;
-                        }
                         else if(!strcmp(_argStr0,"wxImageList")){
                                 object_init_ex(return_value,php_wxImageList_entry);
                                 wxImageList* ret = wxDynamicCast(_ptrObj0,wxImageList_php);
@@ -857,6 +847,34 @@ PHP_FUNCTION(php_wxDynamicCast){
                                 object_init_ex(return_value,php_wxTaskBarIcon_entry);
                                 wxTaskBarIcon* ret = wxDynamicCast(_ptrObj0,wxTaskBarIcon_php);
                                 long id_to_find = zend_list_insert(ret, le_wxTaskBarIcon);
+                                add_property_resource(return_value, _wxResource, id_to_find);
+                                return;
+                        }
+                        else if(!strcmp(_argStr0,"wxScrolledWindow")){
+                                object_init_ex(return_value,php_wxScrolledWindow_entry);
+                                wxScrolledWindow* ret = wxDynamicCast(_ptrObj0,wxScrolledWindow_php);
+                                long id_to_find = zend_list_insert(ret, le_wxScrolledWindow);
+                                add_property_resource(return_value, _wxResource, id_to_find);
+                                return;
+                        }
+                        else if(!strcmp(_argStr0,"wxSpinEvent")){
+                                object_init_ex(return_value,php_wxSpinEvent_entry);
+                                wxSpinEvent* ret = wxDynamicCast(_ptrObj0,wxSpinEvent_php);
+                                long id_to_find = zend_list_insert(ret, le_wxSpinEvent);
+                                add_property_resource(return_value, _wxResource, id_to_find);
+                                return;
+                        }
+                        else if(!strcmp(_argStr0,"wxScrollEvent")){
+                                object_init_ex(return_value,php_wxScrollEvent_entry);
+                                wxScrollEvent* ret = wxDynamicCast(_ptrObj0,wxScrollEvent_php);
+                                long id_to_find = zend_list_insert(ret, le_wxScrollEvent);
+                                add_property_resource(return_value, _wxResource, id_to_find);
+                                return;
+                        }
+                        else if(!strcmp(_argStr0,"wxSpinButton")){
+                                object_init_ex(return_value,php_wxSpinButton_entry);
+                                wxSpinButton* ret = wxDynamicCast(_ptrObj0,wxSpinButton_php);
+                                long id_to_find = zend_list_insert(ret, le_wxSpinButton);
                                 add_property_resource(return_value, _wxResource, id_to_find);
                                 return;
                         }
@@ -1129,10 +1147,6 @@ PHP_MINIT_FUNCTION(php_wxWidgets)
 	php_wxComboBox_entry = zend_register_internal_class(&cf TSRMLS_CC);
 	le_wxComboBox = zend_register_list_destructors_ex(php_wxComboBox_destruction_handler,NULL, le_wxComboBox_name ,module_number);
 
-	INIT_CLASS_ENTRY(cf, PHP_wxPrinter_NAME , php_wxPrinter_functions);
-	php_wxPrinter_entry = zend_register_internal_class(&cf TSRMLS_CC);
-	le_wxPrinter = zend_register_list_destructors_ex(php_wxPrinter_destruction_handler,NULL, le_wxPrinter_name ,module_number);
-
 	INIT_CLASS_ENTRY(cf, PHP_wxPrintout_NAME , php_wxPrintout_functions);
 	php_wxPrintout_entry = zend_register_internal_class(&cf TSRMLS_CC);
 	le_wxPrintout = zend_register_list_destructors_ex(php_wxPrintout_destruction_handler,NULL, le_wxPrintout_name ,module_number);
@@ -1233,10 +1247,6 @@ PHP_MINIT_FUNCTION(php_wxWidgets)
 	php_wxChoice_entry = zend_register_internal_class(&cf TSRMLS_CC);
 	le_wxChoice = zend_register_list_destructors_ex(php_wxChoice_destruction_handler,NULL, le_wxChoice_name ,module_number);
 
-	INIT_CLASS_ENTRY(cf, PHP_wxStyledTextCtrl_NAME , php_wxStyledTextCtrl_functions);
-	php_wxStyledTextCtrl_entry = zend_register_internal_class(&cf TSRMLS_CC);
-	le_wxStyledTextCtrl = zend_register_list_destructors_ex(php_wxStyledTextCtrl_destruction_handler,NULL, le_wxStyledTextCtrl_name ,module_number);
-
 	INIT_CLASS_ENTRY(cf, PHP_wxImageList_NAME , php_wxImageList_functions);
 	php_wxImageList_entry = zend_register_internal_class(&cf TSRMLS_CC);
 	le_wxImageList = zend_register_list_destructors_ex(php_wxImageList_destruction_handler,NULL, le_wxImageList_name ,module_number);
@@ -1272,6 +1282,22 @@ PHP_MINIT_FUNCTION(php_wxWidgets)
 	INIT_CLASS_ENTRY(cf, PHP_wxTaskBarIcon_NAME , php_wxTaskBarIcon_functions);
 	php_wxTaskBarIcon_entry = zend_register_internal_class(&cf TSRMLS_CC);
 	le_wxTaskBarIcon = zend_register_list_destructors_ex(php_wxTaskBarIcon_destruction_handler,NULL, le_wxTaskBarIcon_name ,module_number);
+
+	INIT_CLASS_ENTRY(cf, PHP_wxScrolledWindow_NAME , php_wxScrolledWindow_functions);
+	php_wxScrolledWindow_entry = zend_register_internal_class(&cf TSRMLS_CC);
+	le_wxScrolledWindow = zend_register_list_destructors_ex(php_wxScrolledWindow_destruction_handler,NULL, le_wxScrolledWindow_name ,module_number);
+
+	INIT_CLASS_ENTRY(cf, PHP_wxSpinEvent_NAME , php_wxSpinEvent_functions);
+	php_wxSpinEvent_entry = zend_register_internal_class(&cf TSRMLS_CC);
+	le_wxSpinEvent = zend_register_list_destructors_ex(php_wxSpinEvent_destruction_handler,NULL, le_wxSpinEvent_name ,module_number);
+
+	INIT_CLASS_ENTRY(cf, PHP_wxScrollEvent_NAME , php_wxScrollEvent_functions);
+	php_wxScrollEvent_entry = zend_register_internal_class(&cf TSRMLS_CC);
+	le_wxScrollEvent = zend_register_list_destructors_ex(php_wxScrollEvent_destruction_handler,NULL, le_wxScrollEvent_name ,module_number);
+
+	INIT_CLASS_ENTRY(cf, PHP_wxSpinButton_NAME , php_wxSpinButton_functions);
+	php_wxSpinButton_entry = zend_register_internal_class(&cf TSRMLS_CC);
+	le_wxSpinButton = zend_register_list_destructors_ex(php_wxSpinButton_destruction_handler,NULL, le_wxSpinButton_name ,module_number);
 
 	REGISTER_LONG_CONSTANT("wxBG_STYLE_SYSTEM",	wxBG_STYLE_SYSTEM	, CONST_CS |CONST_PERSISTENT);
 	REGISTER_LONG_CONSTANT("wxBG_STYLE_COLOUR",	wxBG_STYLE_COLOUR	, CONST_CS |CONST_PERSISTENT);
@@ -2966,6 +2992,10 @@ PHP_MINIT_FUNCTION(php_wxWidgets)
 	REGISTER_LONG_CONSTANT("wxSP_NO_XP_THEME",	wxSP_NO_XP_THEME	, CONST_CS |CONST_PERSISTENT);
 	REGISTER_LONG_CONSTANT("wxSP_PERMIT_UNSPLIT",	wxSP_PERMIT_UNSPLIT	, CONST_CS |CONST_PERSISTENT);
 	REGISTER_LONG_CONSTANT("wxSP_LIVE_UPDATE",	wxSP_LIVE_UPDATE	, CONST_CS |CONST_PERSISTENT);
+	REGISTER_LONG_CONSTANT("wxSP_VERTICAL",	wxSP_VERTICAL	, CONST_CS |CONST_PERSISTENT);
+	REGISTER_LONG_CONSTANT("wxSP_HORIZONTAL",	wxSP_HORIZONTAL	, CONST_CS |CONST_PERSISTENT);
+	REGISTER_LONG_CONSTANT("wxSP_ARROW_KEYS",	wxSP_ARROW_KEYS	, CONST_CS |CONST_PERSISTENT);
+	REGISTER_LONG_CONSTANT("wxSP_WRAP",	wxSP_WRAP	, CONST_CS |CONST_PERSISTENT);
 	REGISTER_LONG_CONSTANT("wxGA_HORIZONTAL",	wxGA_HORIZONTAL	, CONST_CS |CONST_PERSISTENT);
 	REGISTER_LONG_CONSTANT("wxGA_VERTICAL",	wxGA_VERTICAL	, CONST_CS |CONST_PERSISTENT);
 	REGISTER_LONG_CONSTANT("wxBU_LEFT",	wxBU_LEFT	, CONST_CS |CONST_PERSISTENT);

@@ -1,4 +1,6 @@
 <?
+	error_reporting(E_ALL ^ E_NOTICE);
+
 	$defConsts = array(
 				"wxSP_3D"				=>1
 				,"wxSP_3DSASH"			=>1
@@ -28,6 +30,10 @@
 				,"wxALIGN_CENTRE_VERTICAL"		=>1
 				,"wxALIGN_CENTER_HORIZONTAL"		=>1
 				,"wxALIGN_CENTRE_HORIZONTAL"		=>1
+				,"wxSP_VERTICAL"		=>1
+				,"wxSP_HORIZONTAL"		=>1
+				,"wxSP_ARROW_KEYS"		=>1
+				,"wxSP_WRAP"		=>1
 				,"wxGA_HORIZONTAL"		=>1
 				,"wxGA_VERTICAL"		=>1
 				,"wxBU_LEFT"		=>1
@@ -482,6 +488,16 @@
 													)
 								)
 						)
+				,"wxScrolledWindow"=> array(
+								 "_extends"		=>"wxPanel"
+								,"wxScrolledWindow" => array(
+												array("void","wxWindow*", "int","const wxPoint&","const wxSize&","long","const wxString&")
+												,array(
+														array(1,1,1)
+														,array(null,null,null,"wxDefaultPosition","wxDefaultSize","0","scrolledWindow")
+													)
+											)
+							)
 				,"wxFrame"	=> array(
 								"_extends"		=> "wxWindow"
 								,"wxFrame"		=> array(
@@ -1148,6 +1164,9 @@
 		$defIni = unserialize(file_get_contents($argv[1]));
 		//blacklist
 		unset($defIni['wxSizer']['Show']);
+
+		include("class_additions.inc");
+		include("class_veto.inc");
 	}
 	
 	if(isset($argv[2]) && file_exists($argv[2]))
@@ -1482,6 +1501,8 @@
 	ob_get_clean();
 
 //merge non-implemented classes methods
+if(isset($defIni['wxScrollHelper']))
+	$defIni['wxScrollHelper']['_doNotImplement']=true;
 if(isset($defIni['wxGenericTreeCtrl']))
 	$defIni['wxGenericTreeCtrl']['_doNotImplement']=true;
 if(isset($defIni['wxGenericListCtrl']))
@@ -1740,7 +1761,7 @@ PHP_METHOD(php_<?=$className?>, Connect)
         {
                 zend_hash_index_find(HASH_OF(fc),0,(void**)&fc_obj);
                 zend_hash_index_find(HASH_OF(fc),1,(void**)&fc_name);
-                ZVAL_ADDREF(*fc_obj);
+                Z_ADDREF_P(*fc_obj);
 
 
                 ct = (*fc_name)->value.str.val;
@@ -2473,7 +2494,7 @@ static function_entry php_<?=$className?>_functions[] = {
 	
 	foreach($defIni as $className => $classDef)
 	{
-		if(!isset($classDef['_type']) && $classDef['_type']=="abstract")
+		if(isset($classDef['_type']) && $classDef['_type']=="abstract")
 			continue;
 		
 ?>
@@ -2561,7 +2582,7 @@ PHP_FUNCTION(php_wxDynamicCast){
 			if(0){
 			}
 <?			foreach($defIni as $className => $classDef):
-				if(!isset($classDef['_type']) && $classDef['_type']=="abstract")
+				if(isset($classDef['_type']) && $classDef['_type']=="abstract")
 		                        continue;
 				if(in_array($className,array("wxPoint","wxSize","wxSizerFlags","wxClassInfo","wxTreeItemData","wxTreeItemId","wxArrayString","wxRect","wxDateTime","wxCalendarDateAttr","wxLocale","wxItemContainer")))
 					continue;
