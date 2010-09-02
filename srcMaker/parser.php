@@ -1,6 +1,9 @@
 <?
 	error_reporting(E_ALL ^ E_NOTICE);
 
+	define("MAX_INLINE_DERIVATION_CHECKS",2);
+	$typeDerivationProcs = array();
+
 	$defConsts = array(
 				"wxSP_3D"				=>1
 				,"wxSP_3DSASH"			=>1
@@ -2193,8 +2196,14 @@ PHP_METHOD(php_<?=$className?>, Connect)
 				foreach($typeVerifier as $k2 => $v)
 					$typeVerifierStr[] = "rsrc_type != le_".$k2;
 				
-				$typeVerifierStr = join(" && ",$typeVerifierStr);
-			
+				if (count($typeVerifierStr) > MAX_INLINE_DERIVATION_CHECKS) {
+					$typeDerivationProcs[$myType] = join(" && ",$typeVerifierStr);
+					$typeVerifierStr = "isInvalidDer_{$myType}(rsrc_type)";
+					}
+				else {
+					$typeVerifierStr = join(" && ",$typeVerifierStr);
+					}
+
 			?>
 		if(_argObj<?=$i?>)
 		if (valid) 
@@ -2227,7 +2236,14 @@ PHP_METHOD(php_<?=$className?>, Connect)
 				foreach($typeVerifier as $k2 => $v)
 					$typeVerifierStr[] = "rsrc_type != le_".$k2;
 				
-				$typeVerifierStr = join(" && ",$typeVerifierStr);
+				if (count($typeVerifierStr) > MAX_INLINE_DERIVATION_CHECKS) {
+					$typeDerivationProcs[$myType] = join(" && ",$typeVerifierStr);
+					$typeVerifierStr = "isInvalidDer_{$myType}(rsrc_type)";
+					}
+				else {
+					$typeVerifierStr = join(" && ",$typeVerifierStr);
+					}
+
 			?>
 		if(valid && _argObj<?=$L+$i?>)
 		{
@@ -2356,7 +2372,12 @@ PHP_METHOD(php_<?=$className?>, Connect)
 	if(!in_array($fileN,$includes))
 		$headers.= "#include \"$fileN.h\"\n";
 
-	$data = "#include \"php_wxwidgets.h\"\n".$headers.$data;
+	$derivProcs = "\n";
+	foreach ($typeDerivationProcs as $myType => $checks) {
+		$derivProcs .= "bool isInvalidDer_{$myType}(int rsrc_type) {return ($checks);}\n";
+		}
+
+	$data = "#include \"php_wxwidgets.h\"\n".$headers.$derivProcs.$data;
 	
 	$hd = fopen($fileN.".cpp","w");
 	fwrite($hd,$data);
@@ -2651,6 +2672,8 @@ PHP_METHOD(php_<?=$className?>, Connect);
 		fwrite($hd,$data);
 		fclose($hd);
 	}
+
+	//file_put_contents("_derivatives.txt",print_r($typeDerivationCheckCount,true).print_r($typeDerivationCheck,true));
 
 	die();
 
