@@ -3,6 +3,7 @@
 
 	define("MAX_INLINE_DERIVATION_CHECKS",2);
 	$typeDerivationProcs = array();
+	$addinFrameCode = "";
 
 	$defConsts = array(
 				"wxSP_3D"				=>1
@@ -2377,7 +2378,9 @@ PHP_METHOD(php_<?=$className?>, Connect)
 		$derivProcs .= "bool isInvalidDer_{$myType}(int rsrc_type) {return ($checks);}\n";
 		}
 
-	$data = "#include \"php_wxwidgets.h\"\n".$headers.$derivProcs.$data;
+	$data = "#include \"php_wxwidgets.h\"\n".$headers.$derivProcs.$addinFrameCode.$data;
+
+	if (isset($replaceData)) foreach ($replaceData as $from => $to) $data = str_replace($from,$to,$data);
 	
 	$hd = fopen($fileN.".cpp","w");
 	fwrite($hd,$data);

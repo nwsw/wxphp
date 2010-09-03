@@ -34,4 +34,41 @@ $defIni["wxSpinButton"]	= array(
 		)
 	);
 
+$defIni["wxTreeCtrl"]["GetItemPHPData"] = 
+	array(
+		array("int","const wxTreeItemId&"),
+		array(1,1)
+		);
+
+$defIni["wxTreeCtrl"]["SetItemPHPData"] = 
+	array(
+		array("void","const wxTreeItemId&","int"),
+		array(1,1,1)
+		);
+
+$addinFrameCode .= <<<__EOTEXT
+class wxTreeItemIdUserValue : public wxTreeItemData {
+public:
+	int UserValue;
+	wxTreeItemIdUserValue(int v) : wxTreeItemData() {UserValue = v;}
+
+	static int GetUserValue(wxTreeCtrl_php *tree,wxTreeItemId &item)
+	{
+		wxTreeItemIdUserValue *tid = (wxTreeItemIdUserValue *) tree->GetItemData(item);
+		return tid ? tid->UserValue : 0;
+	}	
+	static void SetUserValue(wxTreeCtrl_php *tree,wxTreeItemId &item,int v)
+	{
+		wxTreeItemIdUserValue *tid = (wxTreeItemIdUserValue *) tree->GetItemData(item);
+		if (tid) tid->UserValue = v;
+		else tree->SetItemData(item,new wxTreeItemIdUserValue(v));
+	}	
+};
+
+__EOTEXT;
+
+$replaceData = array(
+	'((wxTreeCtrl_php*)_this)->GetItemPHPData(' => 'wxTreeItemIdUserValue::GetUserValue(((wxTreeCtrl_php*)_this),',
+	'((wxTreeCtrl_php*)_this)->SetItemPHPData(' => 'wxTreeItemIdUserValue::SetUserValue(((wxTreeCtrl_php*)_this),'
+	);
 ?>

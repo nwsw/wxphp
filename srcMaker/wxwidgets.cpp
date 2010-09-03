@@ -194,6 +194,8 @@ zend_class_entry *php_wxTaskBarIcon_entry;
 int le_wxTaskBarIcon;
 zend_class_entry *php_wxScrolledWindow_entry;
 int le_wxScrolledWindow;
+zend_class_entry *php_wxIdleEvent_entry;
+int le_wxIdleEvent;
 zend_class_entry *php_wxSpinEvent_entry;
 int le_wxSpinEvent;
 zend_class_entry *php_wxScrollEvent_entry;
@@ -857,6 +859,13 @@ PHP_FUNCTION(php_wxDynamicCast){
                                 add_property_resource(return_value, _wxResource, id_to_find);
                                 return;
                         }
+                        else if(!strcmp(_argStr0,"wxIdleEvent")){
+                                object_init_ex(return_value,php_wxIdleEvent_entry);
+                                wxIdleEvent* ret = wxDynamicCast(_ptrObj0,wxIdleEvent_php);
+                                long id_to_find = zend_list_insert(ret, le_wxIdleEvent);
+                                add_property_resource(return_value, _wxResource, id_to_find);
+                                return;
+                        }
                         else if(!strcmp(_argStr0,"wxSpinEvent")){
                                 object_init_ex(return_value,php_wxSpinEvent_entry);
                                 wxSpinEvent* ret = wxDynamicCast(_ptrObj0,wxSpinEvent_php);
@@ -1286,6 +1295,10 @@ PHP_MINIT_FUNCTION(php_wxWidgets)
 	INIT_CLASS_ENTRY(cf, PHP_wxScrolledWindow_NAME , php_wxScrolledWindow_functions);
 	php_wxScrolledWindow_entry = zend_register_internal_class(&cf TSRMLS_CC);
 	le_wxScrolledWindow = zend_register_list_destructors_ex(php_wxScrolledWindow_destruction_handler,NULL, le_wxScrolledWindow_name ,module_number);
+
+	INIT_CLASS_ENTRY(cf, PHP_wxIdleEvent_NAME , php_wxIdleEvent_functions);
+	php_wxIdleEvent_entry = zend_register_internal_class(&cf TSRMLS_CC);
+	le_wxIdleEvent = zend_register_list_destructors_ex(php_wxIdleEvent_destruction_handler,NULL, le_wxIdleEvent_name ,module_number);
 
 	INIT_CLASS_ENTRY(cf, PHP_wxSpinEvent_NAME , php_wxSpinEvent_functions);
 	php_wxSpinEvent_entry = zend_register_internal_class(&cf TSRMLS_CC);
