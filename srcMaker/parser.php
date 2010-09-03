@@ -243,6 +243,7 @@
 				,"wxCB_DROPDOWN"=>1
 				,"wxCB_READONLY"=>1
 				,"wxCB_SORT"=>1
+				,"wxRB_GROUP"=>1
 				,"wxTR_EDIT_LABELS"=>1
 				,"wxTR_NO_BUTTONS"=>1
 				,"wxTR_HAS_BUTTONS"=>1
