@@ -4,7 +4,7 @@
 bool isInvalidDer_wxWindow(int rsrc_type) {return (rsrc_type != le_wxWindow && rsrc_type != le_wxFrame && rsrc_type != le_wxSplashScreen && rsrc_type != le_wxStatusBar && rsrc_type != le_wxPanel && rsrc_type != le_wxScrolledWindow && rsrc_type != le_wxSplitterWindow && rsrc_type != le_wxTreeCtrl && rsrc_type != le_wxCheckListBox && rsrc_type != le_wxTextCtrl && rsrc_type != le_wxNotebook && rsrc_type != le_wxStaticText && rsrc_type != le_wxButton && rsrc_type != le_wxBitmapButton && rsrc_type != le_wxStaticBox && rsrc_type != le_wxListBox && rsrc_type != le_wxFileDialog && rsrc_type != le_wxDialog && rsrc_type != le_wxMessageDialog && rsrc_type != le_wxDirDialog && rsrc_type != le_wxListCtrl && rsrc_type != le_wxStaticBitmap && rsrc_type != le_wxGauge && rsrc_type != le_wxComboBox && rsrc_type != le_wxCalendarCtrl && rsrc_type != le_wxCheckBox && rsrc_type != le_wxToggleButton && rsrc_type != le_wxChoice && rsrc_type != le_wxRadioButton && rsrc_type != le_wxSpinButton);}
 bool isInvalidDer_wxWindowBase(int rsrc_type) {return (rsrc_type != le_wxWindowBase && rsrc_type != le_wxFrame && rsrc_type != le_wxSplashScreen && rsrc_type != le_wxWindow && rsrc_type != le_wxStatusBar && rsrc_type != le_wxPanel && rsrc_type != le_wxScrolledWindow && rsrc_type != le_wxSplitterWindow && rsrc_type != le_wxTreeCtrl && rsrc_type != le_wxCheckListBox && rsrc_type != le_wxTextCtrl && rsrc_type != le_wxNotebook && rsrc_type != le_wxStaticText && rsrc_type != le_wxButton && rsrc_type != le_wxBitmapButton && rsrc_type != le_wxStaticBox && rsrc_type != le_wxListBox && rsrc_type != le_wxFileDialog && rsrc_type != le_wxDialog && rsrc_type != le_wxMessageDialog && rsrc_type != le_wxDirDialog && rsrc_type != le_wxListCtrl && rsrc_type != le_wxStaticBitmap && rsrc_type != le_wxGauge && rsrc_type != le_wxComboBox && rsrc_type != le_wxCalendarCtrl && rsrc_type != le_wxCheckBox && rsrc_type != le_wxToggleButton && rsrc_type != le_wxChoice && rsrc_type != le_wxRadioButton && rsrc_type != le_wxSpinButton);}
 bool isInvalidDer_wxSizer(int rsrc_type) {return (rsrc_type != le_wxSizer && rsrc_type != le_wxBoxSizer && rsrc_type != le_wxStaticBoxSizer && rsrc_type != le_wxFlexGridSizer);}
-bool isInvalidDer_wxControl(int rsrc_type) {return (rsrc_type != le_wxControl && rsrc_type != le_wxToolBarBase && rsrc_type != le_wxToolBar && rsrc_type != le_wxListCtrl && rsrc_type != le_wxSpinButton);}
+bool isInvalidDer_wxControl(int rsrc_type) {return (rsrc_type != le_wxControl && rsrc_type != le_wxToolBarBase && rsrc_type != le_wxToolBar && rsrc_type != le_wxListCtrl && rsrc_type != le_wxRadioButton && rsrc_type != le_wxSpinButton);}
 bool isInvalidDer_wxEvtHandler(int rsrc_type) {return (rsrc_type != le_wxEvtHandler && rsrc_type != le_wxFrame && rsrc_type != le_wxSplashScreen && rsrc_type != le_wxWindow && rsrc_type != le_wxStatusBar && rsrc_type != le_wxPanel && rsrc_type != le_wxScrolledWindow && rsrc_type != le_wxSplitterWindow && rsrc_type != le_wxTreeCtrl && rsrc_type != le_wxCheckListBox && rsrc_type != le_wxTextCtrl && rsrc_type != le_wxNotebook && rsrc_type != le_wxStaticText && rsrc_type != le_wxButton && rsrc_type != le_wxBitmapButton && rsrc_type != le_wxStaticBox && rsrc_type != le_wxListBox && rsrc_type != le_wxFileDialog && rsrc_type != le_wxDialog && rsrc_type != le_wxMessageDialog && rsrc_type != le_wxDirDialog && rsrc_type != le_wxListCtrl && rsrc_type != le_wxStaticBitmap && rsrc_type != le_wxGauge && rsrc_type != le_wxComboBox && rsrc_type != le_wxCalendarCtrl && rsrc_type != le_wxCheckBox && rsrc_type != le_wxToggleButton && rsrc_type != le_wxChoice && rsrc_type != le_wxRadioButton && rsrc_type != le_wxSpinButton && rsrc_type != le_wxMenu && rsrc_type != le_wxValidator && rsrc_type != le_wxTaskBarIcon);}
 bool isInvalidDer_wxDialog(int rsrc_type) {return (rsrc_type != le_wxDialog && rsrc_type != le_wxFileDialog && rsrc_type != le_wxMessageDialog && rsrc_type != le_wxDirDialog);}
 class wxTreeItemIdUserValue : public wxTreeItemData {
@@ -32691,43 +32691,6 @@ PHP_METHOD(php_wxRadioButton, __construct)
 		}
 	}
 }
-PHP_METHOD(php_wxRadioButton, SetLabel)
-{
-	zval **tmp;
-	int rsrc_type;
-	int id_to_find;
-	char _wxResource[] = "wxResource";
-	int valid = 1;
-	void *_this;
-	
-	if (zend_hash_find(Z_OBJPROP_P(getThis()), _wxResource, sizeof(_wxResource),  (void **)&tmp) == FAILURE) 
-	{
-		return;
-	}
-	id_to_find = Z_RESVAL_P(*tmp);
-	_this = zend_list_find(id_to_find, &rsrc_type);
-	
-	char* _argStr0;
-	int _argStr0_len;
-	valid=1;
-	if (zend_parse_parameters_ex(ZEND_PARSE_PARAMS_QUIET, ZEND_NUM_ARGS() TSRMLS_CC, "s!", &_argStr0 , &_argStr0_len ) == SUCCESS)
-	{
-		
-		if(valid)
-		{
-			int gr = ZEND_NUM_ARGS(); 
-			switch(gr)
-			{
-				case 1:
-					 ((wxRadioButton_php*)_this)->SetLabel(wxString(_argStr0, wxConvUTF8));
-					break;
-				default:
-					break;
-			}
-			
-		}
-	}
-}
 PHP_METHOD(php_wxRadioButton, SetValue)
 {
 	zval **tmp;
@@ -32837,6 +32800,43 @@ PHP_METHOD(php_wxRadioButton, Enable)
 					break;
 			}
 			RETURN_BOOL(ret0)			
+		}
+	}
+}
+PHP_METHOD(php_wxRadioButton, SetLabel)
+{
+	zval **tmp;
+	int rsrc_type;
+	int id_to_find;
+	char _wxResource[] = "wxResource";
+	int valid = 1;
+	void *_this;
+	
+	if (zend_hash_find(Z_OBJPROP_P(getThis()), _wxResource, sizeof(_wxResource),  (void **)&tmp) == FAILURE) 
+	{
+		return;
+	}
+	id_to_find = Z_RESVAL_P(*tmp);
+	_this = zend_list_find(id_to_find, &rsrc_type);
+	
+	char* _argStr0;
+	int _argStr0_len;
+	valid=1;
+	if (zend_parse_parameters_ex(ZEND_PARSE_PARAMS_QUIET, ZEND_NUM_ARGS() TSRMLS_CC, "s!", &_argStr0 , &_argStr0_len ) == SUCCESS)
+	{
+		
+		if(valid)
+		{
+			int gr = ZEND_NUM_ARGS(); 
+			switch(gr)
+			{
+				case 1:
+					 ((wxRadioButton_php*)_this)->SetLabel(wxString(_argStr0, wxConvUTF8));
+					break;
+				default:
+					break;
+			}
+			
 		}
 	}
 }

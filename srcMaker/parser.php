@@ -2676,6 +2676,7 @@ PHP_METHOD(php_<?=$className?>, Connect);
 		fclose($hd);
 	}
 
+	file_put_contents("_defIni.txt",print_r($defIni,true));
 	//file_put_contents("_derivatives.txt",print_r($typeDerivationCheckCount,true).print_r($typeDerivationCheck,true));
 
 	die();

@@ -4072,10 +4072,11 @@ extern int le_wxRadioButton;
 
 static function_entry php_wxRadioButton_functions[] = {
         PHP_ME(php_wxRadioButton, __construct, NULL,ZEND_ACC_PUBLIC|ZEND_ACC_CTOR)
-        PHP_ME(php_wxRadioButton, SetLabel, NULL,ZEND_ACC_PUBLIC)
         PHP_ME(php_wxRadioButton, SetValue, NULL,ZEND_ACC_PUBLIC)
         PHP_ME(php_wxRadioButton, GetValue, NULL,ZEND_ACC_PUBLIC)
         PHP_ME(php_wxRadioButton, Enable, NULL,ZEND_ACC_PUBLIC)
+        PHP_ME(php_wxRadioButton, SetLabel, NULL,ZEND_ACC_PUBLIC)
+        PHP_ME(php_wxControl, GetLabel, NULL,ZEND_ACC_PUBLIC)
         PHP_ME(php_wxWindow, Show, NULL,ZEND_ACC_PUBLIC)
         PHP_ME(php_wxWindow, Create, NULL,ZEND_ACC_PUBLIC)
         PHP_ME(php_wxWindow, Destroy, NULL,ZEND_ACC_PUBLIC)
