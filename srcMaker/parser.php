@@ -1164,9 +1164,12 @@
 				"frame"	=> array()
 	);
 	
-	if(isset($argv[1]) && file_exists($argv[1]))
+	$fname_classes_out = isset($argv[1]) ? $argv[1] : "classes.out";
+	$fname_consts_dump = isset($argv[2]) ? $argv[2] : "consts.dump";
+	
+	if(file_exists($fname_classes_out))
 	{
-		$defIni = unserialize(file_get_contents($argv[1]));
+		$defIni = unserialize(file_get_contents($fname_classes_out));
 		//blacklist
 		unset($defIni['wxSizer']['Show']);
 
@@ -1174,9 +1177,9 @@
 		include("class_veto.inc");
 	}
 	
-	if(isset($argv[2]) && file_exists($argv[2]))
+	if(file_exists($fname_consts_dump))
 	{
-		$temp = unserialize(file_get_contents($argv[2]));
+		$temp = unserialize(file_get_contents($fname_consts_dump));
 		$defConsts = array_merge($temp,$defConsts);
 
                 unset($defConsts['wxHTTP_GET']);

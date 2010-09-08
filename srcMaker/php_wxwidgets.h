@@ -724,6 +724,13 @@ PHP_METHOD(php_wxSpinButton, GetValue);
 PHP_METHOD(php_wxSpinButton, SetRange);
 PHP_METHOD(php_wxSpinButton, SetValue);
 PHP_METHOD(php_wxSpinButton, Connect);
+PHP_METHOD(php_wxSpinCtrl, __construct);
+PHP_METHOD(php_wxSpinCtrl, GetMin);
+PHP_METHOD(php_wxSpinCtrl, GetMax);
+PHP_METHOD(php_wxSpinCtrl, SetRange);
+PHP_METHOD(php_wxSpinCtrl, GetValue);
+PHP_METHOD(php_wxSpinCtrl, SetValue);
+PHP_METHOD(php_wxSpinCtrl, Connect);
 
 // <--- entries
 

@@ -35,6 +35,7 @@
 #include <wx/calctrl.h>
 #include <wx/treectrl.h>
 #include <wx/spinbutt.h>
+#include <wx/spinctrl.h>
 #include <wx/taskbar.h>
 #include <wx/splitter.h>
 #include <wx/listctrl.h>

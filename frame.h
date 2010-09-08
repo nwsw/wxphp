@@ -4479,3 +4479,73 @@ static function_entry php_wxSpinButton_functions[] = {
         PHP_ME(php_wxWindowBase, FindWindow, NULL,ZEND_ACC_PUBLIC)
 	{ NULL, NULL, NULL }
 };
+extern zend_class_entry *php_wxSpinCtrl_entry;
+void php_wxSpinCtrl_destruction_handler(zend_rsrc_list_entry * TSRMLS_DC);
+
+#define PHP_wxSpinCtrl_NAME "wxSpinCtrl"
+#define le_wxSpinCtrl_name  "native wxSpinCtrl"
+
+class wxSpinCtrl_php : public wxSpinCtrl{
+	public:
+	wxSpinCtrl_php(wxWindow* arg0 , int arg1 , const wxString& arg2 = wxEmptyString , const wxPoint& arg3 = wxDefaultPosition , const wxSize& arg4 = wxDefaultSize , int arg5 = wxSP_ARROW_KEYS , int arg6 = 0 , int arg7 = 100 , int arg8 = 0):wxSpinCtrl(arg0 , arg1 , arg2 , arg3 , arg4 , arg5 , arg6 , arg7 , arg8)
+	{
+	}
+	zval *evnArray;
+	void onEvent(wxEvent& evnt);
+	void ***tsrm_ls;
+	zval* phpObj;
+};
+
+
+extern int le_wxSpinCtrl;
+
+static function_entry php_wxSpinCtrl_functions[] = {
+        PHP_ME(php_wxSpinCtrl, __construct, NULL,ZEND_ACC_PUBLIC|ZEND_ACC_CTOR)
+        PHP_ME(php_wxSpinCtrl, GetMin, NULL,ZEND_ACC_PUBLIC)
+        PHP_ME(php_wxSpinCtrl, GetMax, NULL,ZEND_ACC_PUBLIC)
+        PHP_ME(php_wxSpinCtrl, SetRange, NULL,ZEND_ACC_PUBLIC)
+        PHP_ME(php_wxSpinCtrl, GetValue, NULL,ZEND_ACC_PUBLIC)
+        PHP_ME(php_wxSpinCtrl, SetValue, NULL,ZEND_ACC_PUBLIC)
+        PHP_ME(php_wxControl, SetLabel, NULL,ZEND_ACC_PUBLIC)
+        PHP_ME(php_wxControl, GetLabel, NULL,ZEND_ACC_PUBLIC)
+        PHP_ME(php_wxWindow, Show, NULL,ZEND_ACC_PUBLIC)
+        PHP_ME(php_wxWindow, Create, NULL,ZEND_ACC_PUBLIC)
+        PHP_ME(php_wxWindow, Destroy, NULL,ZEND_ACC_PUBLIC)
+        PHP_ME(php_wxWindow, Raise, NULL,ZEND_ACC_PUBLIC)
+        PHP_ME(php_wxWindow, Lower, NULL,ZEND_ACC_PUBLIC)
+        PHP_ME(php_wxWindow, Enable, NULL,ZEND_ACC_PUBLIC)
+        PHP_ME(php_wxWindow, IsRetained, NULL,ZEND_ACC_PUBLIC)
+        PHP_ME(php_wxWindow, SetFocus, NULL,ZEND_ACC_PUBLIC)
+        PHP_ME(php_wxWindow, Reparent, NULL,ZEND_ACC_PUBLIC)
+        PHP_ME(php_wxWindow, WarpPointer, NULL,ZEND_ACC_PUBLIC)
+        PHP_ME(php_wxWindow, Update, NULL,ZEND_ACC_PUBLIC)
+        PHP_ME(php_wxWindow, ClearBackground, NULL,ZEND_ACC_PUBLIC)
+        PHP_ME(php_wxWindow, SetBackgroundColour, NULL,ZEND_ACC_PUBLIC)
+        PHP_ME(php_wxWindow, SetForegroundColour, NULL,ZEND_ACC_PUBLIC)
+        PHP_ME(php_wxWindow, SetCursor, NULL,ZEND_ACC_PUBLIC)
+        PHP_ME(php_wxWindow, SetFont, NULL,ZEND_ACC_PUBLIC)
+        PHP_ME(php_wxWindow, GetCharHeight, NULL,ZEND_ACC_PUBLIC)
+        PHP_ME(php_wxWindow, GetCharWidth, NULL,ZEND_ACC_PUBLIC)
+        PHP_ME(php_wxWindow, SetScrollbar, NULL,ZEND_ACC_PUBLIC)
+        PHP_ME(php_wxWindow, SetScrollPos, NULL,ZEND_ACC_PUBLIC)
+        PHP_ME(php_wxWindow, GetScrollThumb, NULL,ZEND_ACC_PUBLIC)
+        PHP_ME(php_wxWindow, GetScrollRange, NULL,ZEND_ACC_PUBLIC)
+        PHP_ME(php_wxWindow, AddChild, NULL,ZEND_ACC_PUBLIC)
+        PHP_ME(php_wxWindow, RemoveChild, NULL,ZEND_ACC_PUBLIC)
+        PHP_ME(php_wxWindow, GetHandle, NULL,ZEND_ACC_PUBLIC)
+        PHP_ME(php_wxWindow, Refresh, NULL,ZEND_ACC_PUBLIC)
+        PHP_ME(php_wxWindow, IsFrozen, NULL,ZEND_ACC_PUBLIC)
+        PHP_ME(php_wxEvtHandler, Connect, NULL,ZEND_ACC_PUBLIC)
+        PHP_ME(php_wxWindowBase, SetSizer, NULL,ZEND_ACC_PUBLIC)
+        PHP_ME(php_wxWindowBase, GetSizer, NULL,ZEND_ACC_PUBLIC)
+        PHP_ME(php_wxWindowBase, Layout, NULL,ZEND_ACC_PUBLIC)
+        PHP_ME(php_wxWindowBase, Fit, NULL,ZEND_ACC_PUBLIC)
+        PHP_ME(php_wxWindowBase, SetWindowStyle, NULL,ZEND_ACC_PUBLIC)
+        PHP_ME(php_wxWindowBase, PopupMenu, NULL,ZEND_ACC_PUBLIC)
+        PHP_ME(php_wxWindowBase, IsShown, NULL,ZEND_ACC_PUBLIC)
+        PHP_ME(php_wxWindowBase, IsEnabled, NULL,ZEND_ACC_PUBLIC)
+        PHP_ME(php_wxWindowBase, IsShownOnScreen, NULL,ZEND_ACC_PUBLIC)
+        PHP_ME(php_wxWindowBase, UpdateWindowUI, NULL,ZEND_ACC_PUBLIC)
+        PHP_ME(php_wxWindowBase, FindWindow, NULL,ZEND_ACC_PUBLIC)
+	{ NULL, NULL, NULL }
+};

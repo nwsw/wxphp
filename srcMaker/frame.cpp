@@ -1,11 +1,11 @@
 #include "php_wxwidgets.h"
 #include "frame.h"
 
-bool isInvalidDer_wxWindow(int rsrc_type) {return (rsrc_type != le_wxWindow && rsrc_type != le_wxFrame && rsrc_type != le_wxSplashScreen && rsrc_type != le_wxStatusBar && rsrc_type != le_wxPanel && rsrc_type != le_wxScrolledWindow && rsrc_type != le_wxSplitterWindow && rsrc_type != le_wxTreeCtrl && rsrc_type != le_wxCheckListBox && rsrc_type != le_wxTextCtrl && rsrc_type != le_wxNotebook && rsrc_type != le_wxStaticText && rsrc_type != le_wxButton && rsrc_type != le_wxBitmapButton && rsrc_type != le_wxStaticBox && rsrc_type != le_wxListBox && rsrc_type != le_wxFileDialog && rsrc_type != le_wxDialog && rsrc_type != le_wxMessageDialog && rsrc_type != le_wxDirDialog && rsrc_type != le_wxListCtrl && rsrc_type != le_wxStaticBitmap && rsrc_type != le_wxGauge && rsrc_type != le_wxComboBox && rsrc_type != le_wxCalendarCtrl && rsrc_type != le_wxCheckBox && rsrc_type != le_wxToggleButton && rsrc_type != le_wxChoice && rsrc_type != le_wxRadioButton && rsrc_type != le_wxSpinButton);}
-bool isInvalidDer_wxWindowBase(int rsrc_type) {return (rsrc_type != le_wxWindowBase && rsrc_type != le_wxFrame && rsrc_type != le_wxSplashScreen && rsrc_type != le_wxWindow && rsrc_type != le_wxStatusBar && rsrc_type != le_wxPanel && rsrc_type != le_wxScrolledWindow && rsrc_type != le_wxSplitterWindow && rsrc_type != le_wxTreeCtrl && rsrc_type != le_wxCheckListBox && rsrc_type != le_wxTextCtrl && rsrc_type != le_wxNotebook && rsrc_type != le_wxStaticText && rsrc_type != le_wxButton && rsrc_type != le_wxBitmapButton && rsrc_type != le_wxStaticBox && rsrc_type != le_wxListBox && rsrc_type != le_wxFileDialog && rsrc_type != le_wxDialog && rsrc_type != le_wxMessageDialog && rsrc_type != le_wxDirDialog && rsrc_type != le_wxListCtrl && rsrc_type != le_wxStaticBitmap && rsrc_type != le_wxGauge && rsrc_type != le_wxComboBox && rsrc_type != le_wxCalendarCtrl && rsrc_type != le_wxCheckBox && rsrc_type != le_wxToggleButton && rsrc_type != le_wxChoice && rsrc_type != le_wxRadioButton && rsrc_type != le_wxSpinButton);}
+bool isInvalidDer_wxWindow(int rsrc_type) {return (rsrc_type != le_wxWindow && rsrc_type != le_wxFrame && rsrc_type != le_wxSplashScreen && rsrc_type != le_wxStatusBar && rsrc_type != le_wxPanel && rsrc_type != le_wxScrolledWindow && rsrc_type != le_wxSplitterWindow && rsrc_type != le_wxTreeCtrl && rsrc_type != le_wxCheckListBox && rsrc_type != le_wxTextCtrl && rsrc_type != le_wxNotebook && rsrc_type != le_wxStaticText && rsrc_type != le_wxButton && rsrc_type != le_wxBitmapButton && rsrc_type != le_wxStaticBox && rsrc_type != le_wxListBox && rsrc_type != le_wxFileDialog && rsrc_type != le_wxDialog && rsrc_type != le_wxMessageDialog && rsrc_type != le_wxDirDialog && rsrc_type != le_wxListCtrl && rsrc_type != le_wxStaticBitmap && rsrc_type != le_wxGauge && rsrc_type != le_wxComboBox && rsrc_type != le_wxCalendarCtrl && rsrc_type != le_wxCheckBox && rsrc_type != le_wxToggleButton && rsrc_type != le_wxChoice && rsrc_type != le_wxRadioButton && rsrc_type != le_wxSpinButton && rsrc_type != le_wxSpinCtrl);}
+bool isInvalidDer_wxWindowBase(int rsrc_type) {return (rsrc_type != le_wxWindowBase && rsrc_type != le_wxFrame && rsrc_type != le_wxSplashScreen && rsrc_type != le_wxWindow && rsrc_type != le_wxStatusBar && rsrc_type != le_wxPanel && rsrc_type != le_wxScrolledWindow && rsrc_type != le_wxSplitterWindow && rsrc_type != le_wxTreeCtrl && rsrc_type != le_wxCheckListBox && rsrc_type != le_wxTextCtrl && rsrc_type != le_wxNotebook && rsrc_type != le_wxStaticText && rsrc_type != le_wxButton && rsrc_type != le_wxBitmapButton && rsrc_type != le_wxStaticBox && rsrc_type != le_wxListBox && rsrc_type != le_wxFileDialog && rsrc_type != le_wxDialog && rsrc_type != le_wxMessageDialog && rsrc_type != le_wxDirDialog && rsrc_type != le_wxListCtrl && rsrc_type != le_wxStaticBitmap && rsrc_type != le_wxGauge && rsrc_type != le_wxComboBox && rsrc_type != le_wxCalendarCtrl && rsrc_type != le_wxCheckBox && rsrc_type != le_wxToggleButton && rsrc_type != le_wxChoice && rsrc_type != le_wxRadioButton && rsrc_type != le_wxSpinButton && rsrc_type != le_wxSpinCtrl);}
 bool isInvalidDer_wxSizer(int rsrc_type) {return (rsrc_type != le_wxSizer && rsrc_type != le_wxBoxSizer && rsrc_type != le_wxStaticBoxSizer && rsrc_type != le_wxFlexGridSizer);}
-bool isInvalidDer_wxControl(int rsrc_type) {return (rsrc_type != le_wxControl && rsrc_type != le_wxToolBarBase && rsrc_type != le_wxToolBar && rsrc_type != le_wxListCtrl && rsrc_type != le_wxRadioButton && rsrc_type != le_wxSpinButton);}
-bool isInvalidDer_wxEvtHandler(int rsrc_type) {return (rsrc_type != le_wxEvtHandler && rsrc_type != le_wxFrame && rsrc_type != le_wxSplashScreen && rsrc_type != le_wxWindow && rsrc_type != le_wxStatusBar && rsrc_type != le_wxPanel && rsrc_type != le_wxScrolledWindow && rsrc_type != le_wxSplitterWindow && rsrc_type != le_wxTreeCtrl && rsrc_type != le_wxCheckListBox && rsrc_type != le_wxTextCtrl && rsrc_type != le_wxNotebook && rsrc_type != le_wxStaticText && rsrc_type != le_wxButton && rsrc_type != le_wxBitmapButton && rsrc_type != le_wxStaticBox && rsrc_type != le_wxListBox && rsrc_type != le_wxFileDialog && rsrc_type != le_wxDialog && rsrc_type != le_wxMessageDialog && rsrc_type != le_wxDirDialog && rsrc_type != le_wxListCtrl && rsrc_type != le_wxStaticBitmap && rsrc_type != le_wxGauge && rsrc_type != le_wxComboBox && rsrc_type != le_wxCalendarCtrl && rsrc_type != le_wxCheckBox && rsrc_type != le_wxToggleButton && rsrc_type != le_wxChoice && rsrc_type != le_wxRadioButton && rsrc_type != le_wxSpinButton && rsrc_type != le_wxMenu && rsrc_type != le_wxValidator && rsrc_type != le_wxTaskBarIcon);}
+bool isInvalidDer_wxControl(int rsrc_type) {return (rsrc_type != le_wxControl && rsrc_type != le_wxToolBarBase && rsrc_type != le_wxToolBar && rsrc_type != le_wxListCtrl && rsrc_type != le_wxRadioButton && rsrc_type != le_wxSpinButton && rsrc_type != le_wxSpinCtrl);}
+bool isInvalidDer_wxEvtHandler(int rsrc_type) {return (rsrc_type != le_wxEvtHandler && rsrc_type != le_wxFrame && rsrc_type != le_wxSplashScreen && rsrc_type != le_wxWindow && rsrc_type != le_wxStatusBar && rsrc_type != le_wxPanel && rsrc_type != le_wxScrolledWindow && rsrc_type != le_wxSplitterWindow && rsrc_type != le_wxTreeCtrl && rsrc_type != le_wxCheckListBox && rsrc_type != le_wxTextCtrl && rsrc_type != le_wxNotebook && rsrc_type != le_wxStaticText && rsrc_type != le_wxButton && rsrc_type != le_wxBitmapButton && rsrc_type != le_wxStaticBox && rsrc_type != le_wxListBox && rsrc_type != le_wxFileDialog && rsrc_type != le_wxDialog && rsrc_type != le_wxMessageDialog && rsrc_type != le_wxDirDialog && rsrc_type != le_wxListCtrl && rsrc_type != le_wxStaticBitmap && rsrc_type != le_wxGauge && rsrc_type != le_wxComboBox && rsrc_type != le_wxCalendarCtrl && rsrc_type != le_wxCheckBox && rsrc_type != le_wxToggleButton && rsrc_type != le_wxChoice && rsrc_type != le_wxRadioButton && rsrc_type != le_wxSpinButton && rsrc_type != le_wxSpinCtrl && rsrc_type != le_wxMenu && rsrc_type != le_wxValidator && rsrc_type != le_wxTaskBarIcon);}
 bool isInvalidDer_wxDialog(int rsrc_type) {return (rsrc_type != le_wxDialog && rsrc_type != le_wxFileDialog && rsrc_type != le_wxMessageDialog && rsrc_type != le_wxDirDialog);}
 class wxTreeItemIdUserValue : public wxTreeItemData {
 public:
@@ -34416,6 +34416,304 @@ PHP_METHOD(php_wxSpinButton, SetValue)
 			{
 				case 1:
 					 ((wxSpinButton_php*)_this)->SetValue((int)_argLong0);
+					break;
+				default:
+					break;
+			}
+			
+		}
+	}
+}
+void php_wxSpinCtrl_destruction_handler(zend_rsrc_list_entry *rsrc TSRMLS_DC) 
+{
+	}			
+PHP_METHOD(php_wxSpinCtrl, __construct)
+{
+	zval **tmp;
+	int rsrc_type;
+	char _wxResource[] = "wxResource";
+	int valid = 1;
+	void *_this;
+	long _argLong0;
+	long _argLong1;
+	long _argLong2;
+	long _argLong3;
+	long _argLong4;
+	char* _argStr0;
+	int _argStr0_len;
+	void *_ptrObj0 = 0;
+	zval *_argObj0 = 0;
+	int id_to_find0;
+	void *_ptrObj1 = 0;
+	zval *_argObj1 = 0;
+	int id_to_find1;
+	void *_ptrObj2 = 0;
+	zval *_argObj2 = 0;
+	int id_to_find2;
+	valid=1;
+	if (zend_parse_parameters_ex(ZEND_PARSE_PARAMS_QUIET, ZEND_NUM_ARGS() TSRMLS_CC, "z!l!|s!z!z!l!l!l!l!", &_argObj0 , &_argLong0 , &_argStr0 , &_argStr0_len , &_argObj1 , &_argObj2 , &_argLong1 , &_argLong2 , &_argLong3 , &_argLong4 ) == SUCCESS)
+	{
+		
+		if(_argObj0)
+		if (valid) 
+		{
+			if(_argObj0->type==IS_OBJECT && zend_hash_find(Z_OBJPROP_P(_argObj0), _wxResource , sizeof(_wxResource),  (void **)&tmp) == SUCCESS)
+			{
+				id_to_find0 = Z_RESVAL_P(*tmp);
+				_ptrObj0 = zend_list_find(id_to_find0, &rsrc_type);
+				if (!_ptrObj0 || (isInvalidDer_wxWindow(rsrc_type)))
+					valid = 0;
+			}
+			else if(_argObj0->type==IS_LONG)
+				_ptrObj0= (void *)_argObj0->value.lval;
+			else if(_argObj0->type!=IS_NULL)
+				valid = 0;
+		}
+		else
+			valid = 0;
+		if(valid && _argObj1)
+		{
+			if (_argObj1->type==IS_OBJECT && zend_hash_find(Z_OBJPROP_P(_argObj1), _wxResource , sizeof(_wxResource),  (void **)&tmp) == SUCCESS) 
+			{
+				id_to_find1 = Z_RESVAL_P(*tmp);
+				_ptrObj1 = zend_list_find(id_to_find1, &rsrc_type);
+				if (!_ptrObj1 || (rsrc_type != le_wxPoint))
+					valid = 0;
+			}
+			else if(_argObj1->type==IS_LONG)
+				_ptrObj1= (void *)_argObj1->value.lval;
+		}
+		if(valid && _argObj2)
+		{
+			if (_argObj2->type==IS_OBJECT && zend_hash_find(Z_OBJPROP_P(_argObj2), _wxResource , sizeof(_wxResource),  (void **)&tmp) == SUCCESS) 
+			{
+				id_to_find2 = Z_RESVAL_P(*tmp);
+				_ptrObj2 = zend_list_find(id_to_find2, &rsrc_type);
+				if (!_ptrObj2 || (rsrc_type != le_wxSize))
+					valid = 0;
+			}
+			else if(_argObj2->type==IS_LONG)
+				_ptrObj2= (void *)_argObj2->value.lval;
+		}
+		if(valid)
+		{
+			int gr = ZEND_NUM_ARGS(); 
+			switch(gr)
+			{
+				case 9:
+					_this = new wxSpinCtrl_php((wxWindow*) _ptrObj0 , (int)_argLong0 , wxString(_argStr0, wxConvUTF8) , *(wxPoint *) _ptrObj1 , *(wxSize *) _ptrObj2 , (int)_argLong1 , (int)_argLong2 , (int)_argLong3 , (int)_argLong4);
+					break;
+				case 8:
+					_this = new wxSpinCtrl_php((wxWindow*) _ptrObj0 , (int)_argLong0 , wxString(_argStr0, wxConvUTF8) , *(wxPoint *) _ptrObj1 , *(wxSize *) _ptrObj2 , (int)_argLong1 , (int)_argLong2 , (int)_argLong3);
+					break;
+				case 7:
+					_this = new wxSpinCtrl_php((wxWindow*) _ptrObj0 , (int)_argLong0 , wxString(_argStr0, wxConvUTF8) , *(wxPoint *) _ptrObj1 , *(wxSize *) _ptrObj2 , (int)_argLong1 , (int)_argLong2);
+					break;
+				case 6:
+					_this = new wxSpinCtrl_php((wxWindow*) _ptrObj0 , (int)_argLong0 , wxString(_argStr0, wxConvUTF8) , *(wxPoint *) _ptrObj1 , *(wxSize *) _ptrObj2 , (int)_argLong1);
+					break;
+				case 5:
+					_this = new wxSpinCtrl_php((wxWindow*) _ptrObj0 , (int)_argLong0 , wxString(_argStr0, wxConvUTF8) , *(wxPoint *) _ptrObj1 , *(wxSize *) _ptrObj2);
+					break;
+				case 4:
+					_this = new wxSpinCtrl_php((wxWindow*) _ptrObj0 , (int)_argLong0 , wxString(_argStr0, wxConvUTF8) , *(wxPoint *) _ptrObj1);
+					break;
+				case 3:
+					_this = new wxSpinCtrl_php((wxWindow*) _ptrObj0 , (int)_argLong0 , wxString(_argStr0, wxConvUTF8));
+					break;
+				case 2:
+					_this = new wxSpinCtrl_php((wxWindow*) _ptrObj0 , (int)_argLong0);
+					break;
+				default:
+					break;
+			}
+			long id_to_find = zend_list_insert(_this, le_wxSpinCtrl);
+			add_property_resource(getThis(), _wxResource, id_to_find);					
+			MAKE_STD_ZVAL(((wxSpinCtrl_php*) _this)->evnArray);
+			array_init(((wxSpinCtrl_php*) _this)->evnArray);
+			MAKE_STD_ZVAL(((wxSpinCtrl_php*) _this)->phpObj);
+			*((wxSpinCtrl_php*) _this)->phpObj = *getThis();
+			zval_copy_ctor(((wxSpinCtrl_php*) _this)->phpObj);
+			#ifdef ZTS 
+			((wxSpinCtrl_php*) _this)->TSRMLS_C = TSRMLS_C;
+			#endif
+			
+		}
+	}
+}
+PHP_METHOD(php_wxSpinCtrl, GetMin)
+{
+	zval **tmp;
+	int rsrc_type;
+	int id_to_find;
+	char _wxResource[] = "wxResource";
+	int valid = 1;
+	void *_this;
+	
+	if (zend_hash_find(Z_OBJPROP_P(getThis()), _wxResource, sizeof(_wxResource),  (void **)&tmp) == FAILURE) 
+	{
+		return;
+	}
+	id_to_find = Z_RESVAL_P(*tmp);
+	_this = zend_list_find(id_to_find, &rsrc_type);
+	
+	valid=1;
+	if (ZEND_NUM_ARGS()==0)
+	{
+		
+		if(valid)
+		{
+			int ret0;
+			int gr = ZEND_NUM_ARGS(); 
+			switch(gr)
+			{
+				case 0:
+					ret0 =  ((wxSpinCtrl_php*)_this)->GetMin();
+					break;
+				default:
+					break;
+			}
+			RETURN_LONG((long)ret0)			
+		}
+	}
+}
+PHP_METHOD(php_wxSpinCtrl, GetMax)
+{
+	zval **tmp;
+	int rsrc_type;
+	int id_to_find;
+	char _wxResource[] = "wxResource";
+	int valid = 1;
+	void *_this;
+	
+	if (zend_hash_find(Z_OBJPROP_P(getThis()), _wxResource, sizeof(_wxResource),  (void **)&tmp) == FAILURE) 
+	{
+		return;
+	}
+	id_to_find = Z_RESVAL_P(*tmp);
+	_this = zend_list_find(id_to_find, &rsrc_type);
+	
+	valid=1;
+	if (ZEND_NUM_ARGS()==0)
+	{
+		
+		if(valid)
+		{
+			int ret0;
+			int gr = ZEND_NUM_ARGS(); 
+			switch(gr)
+			{
+				case 0:
+					ret0 =  ((wxSpinCtrl_php*)_this)->GetMax();
+					break;
+				default:
+					break;
+			}
+			RETURN_LONG((long)ret0)			
+		}
+	}
+}
+PHP_METHOD(php_wxSpinCtrl, SetRange)
+{
+	zval **tmp;
+	int rsrc_type;
+	int id_to_find;
+	char _wxResource[] = "wxResource";
+	int valid = 1;
+	void *_this;
+	
+	if (zend_hash_find(Z_OBJPROP_P(getThis()), _wxResource, sizeof(_wxResource),  (void **)&tmp) == FAILURE) 
+	{
+		return;
+	}
+	id_to_find = Z_RESVAL_P(*tmp);
+	_this = zend_list_find(id_to_find, &rsrc_type);
+	
+	long _argLong0;
+	long _argLong1;
+	valid=1;
+	if (zend_parse_parameters_ex(ZEND_PARSE_PARAMS_QUIET, ZEND_NUM_ARGS() TSRMLS_CC, "l!l!", &_argLong0 , &_argLong1 ) == SUCCESS)
+	{
+		
+		if(valid)
+		{
+			int gr = ZEND_NUM_ARGS(); 
+			switch(gr)
+			{
+				case 2:
+					 ((wxSpinCtrl_php*)_this)->SetRange((int)_argLong0 , (int)_argLong1);
+					break;
+				default:
+					break;
+			}
+			
+		}
+	}
+}
+PHP_METHOD(php_wxSpinCtrl, GetValue)
+{
+	zval **tmp;
+	int rsrc_type;
+	int id_to_find;
+	char _wxResource[] = "wxResource";
+	int valid = 1;
+	void *_this;
+	
+	if (zend_hash_find(Z_OBJPROP_P(getThis()), _wxResource, sizeof(_wxResource),  (void **)&tmp) == FAILURE) 
+	{
+		return;
+	}
+	id_to_find = Z_RESVAL_P(*tmp);
+	_this = zend_list_find(id_to_find, &rsrc_type);
+	
+	valid=1;
+	if (ZEND_NUM_ARGS()==0)
+	{
+		
+		if(valid)
+		{
+			int ret0;
+			int gr = ZEND_NUM_ARGS(); 
+			switch(gr)
+			{
+				case 0:
+					ret0 =  ((wxSpinCtrl_php*)_this)->GetValue();
+					break;
+				default:
+					break;
+			}
+			RETURN_LONG((long)ret0)			
+		}
+	}
+}
+PHP_METHOD(php_wxSpinCtrl, SetValue)
+{
+	zval **tmp;
+	int rsrc_type;
+	int id_to_find;
+	char _wxResource[] = "wxResource";
+	int valid = 1;
+	void *_this;
+	
+	if (zend_hash_find(Z_OBJPROP_P(getThis()), _wxResource, sizeof(_wxResource),  (void **)&tmp) == FAILURE) 
+	{
+		return;
+	}
+	id_to_find = Z_RESVAL_P(*tmp);
+	_this = zend_list_find(id_to_find, &rsrc_type);
+	
+	long _argLong0;
+	valid=1;
+	if (zend_parse_parameters_ex(ZEND_PARSE_PARAMS_QUIET, ZEND_NUM_ARGS() TSRMLS_CC, "l!", &_argLong0 ) == SUCCESS)
+	{
+		
+		if(valid)
+		{
+			int gr = ZEND_NUM_ARGS(); 
+			switch(gr)
+			{
+				case 1:
+					 ((wxSpinCtrl_php*)_this)->SetValue((int)_argLong0);
 					break;
 				default:
 					break;

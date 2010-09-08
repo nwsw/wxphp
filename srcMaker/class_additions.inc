@@ -34,6 +34,38 @@ $defIni["wxSpinButton"]	= array(
 		)
 	);
 
+$defIni["wxSpinCtrl"]	= array(
+	"_implements"	=> Array("wxControl","wxWindow","wxEvtHandler"),
+	"_const"		=> array("GetMin","GetMax","GetValue"),
+	"wxSpinCtrl"		=> array(
+		array("void","wxWindow*","int","const wxString&","const wxPoint&","const wxSize&","int","int","int","int"),
+		array(
+			array(1,1,1),
+			array(null,null,null,"wxEmptyString","wxDefaultPosition","wxDefaultSize","wxSP_ARROW_KEYS",0,100,0)
+			)
+		),
+	"GetMin"	=> array(
+		array("int"),
+		array(1)
+		),
+	"GetMax"	=> array(
+		array("int"),
+		array(1)
+		),
+	"SetRange"	=> array(
+		array("void","int","int"),
+		array(1,1,1)
+		),
+	"GetValue"	=> array(
+		array("int"),
+		array(1)
+		),
+	"SetValue"		=> array(
+		array("void","int"),
+		array(1,1)
+		)
+	);
+
 $defIni["wxTreeCtrl"]["GetItemPHPData"] = 
 	array(
 		array("int","const wxTreeItemId&"),

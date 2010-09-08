@@ -202,6 +202,8 @@ zend_class_entry *php_wxScrollEvent_entry;
 int le_wxScrollEvent;
 zend_class_entry *php_wxSpinButton_entry;
 int le_wxSpinButton;
+zend_class_entry *php_wxSpinCtrl_entry;
+int le_wxSpinCtrl;
 
 // <--- entries
 
@@ -887,6 +889,13 @@ PHP_FUNCTION(php_wxDynamicCast){
                                 add_property_resource(return_value, _wxResource, id_to_find);
                                 return;
                         }
+                        else if(!strcmp(_argStr0,"wxSpinCtrl")){
+                                object_init_ex(return_value,php_wxSpinCtrl_entry);
+                                wxSpinCtrl* ret = wxDynamicCast(_ptrObj0,wxSpinCtrl_php);
+                                long id_to_find = zend_list_insert(ret, le_wxSpinCtrl);
+                                add_property_resource(return_value, _wxResource, id_to_find);
+                                return;
+                        }
                 }
 
         }
@@ -1311,6 +1320,10 @@ PHP_MINIT_FUNCTION(php_wxWidgets)
 	INIT_CLASS_ENTRY(cf, PHP_wxSpinButton_NAME , php_wxSpinButton_functions);
 	php_wxSpinButton_entry = zend_register_internal_class(&cf TSRMLS_CC);
 	le_wxSpinButton = zend_register_list_destructors_ex(php_wxSpinButton_destruction_handler,NULL, le_wxSpinButton_name ,module_number);
+
+	INIT_CLASS_ENTRY(cf, PHP_wxSpinCtrl_NAME , php_wxSpinCtrl_functions);
+	php_wxSpinCtrl_entry = zend_register_internal_class(&cf TSRMLS_CC);
+	le_wxSpinCtrl = zend_register_list_destructors_ex(php_wxSpinCtrl_destruction_handler,NULL, le_wxSpinCtrl_name ,module_number);
 
 	REGISTER_LONG_CONSTANT("wxBG_STYLE_SYSTEM",	wxBG_STYLE_SYSTEM	, CONST_CS |CONST_PERSISTENT);
 	REGISTER_LONG_CONSTANT("wxBG_STYLE_COLOUR",	wxBG_STYLE_COLOUR	, CONST_CS |CONST_PERSISTENT);
