@@ -25,6 +25,7 @@ bool wxAppWrapper::OnInit()
 
 	wxFileSystem::AddHandler(new wxZipFSHandler);
 	wxImage::AddHandler( new wxPNGHandler );
+	wxImage::AddHandler( new wxXPMHandler );
 	if (call_user_function_ex(NULL, &phpObj, &func_name, &retval, 0, NULL, 0, NULL TSRMLS_CC) == FAILURE) {
 		wxMessageBox(_T("Failed Call!\n"));
 	}
