@@ -1916,17 +1916,17 @@ PHP_METHOD(php_<?=$className?>, Connect)
 							$argStr[$e/2].="s";
 							$parseArgs[$e/2][] = "&_argStr".$types['s'];
 							$parseArgs[$e/2][] = "&_argStr".$types['s']."_len";
-							$callArgs[$e/2][] = "&_argStr".$types['s'];
+							$callArgs[$e/2][] = "_argStr".$types['s'];
 							$types['s']++;
 							break;
-                                                case "const wchar_t*":
-                                                        $methodArgs[$e][$i] = "wchar_t *";
-                                                        $argStr[$e/2].="s";
-                                                        $parseArgs[$e/2][] = "&_argStr".$types['s'];
-                                                        $parseArgs[$e/2][] = "&_argStr".$types['s']."_len";
-                                                        $callArgs[$e/2][] = "wxString(_argStr{$types['s']}, wxConvUTF8)";
-                                                        $types['s']++;
-                                                        break;
+						case "const wchar_t*":
+							$methodArgs[$e][$i] = "wchar_t *";
+							$argStr[$e/2].="s";
+							$parseArgs[$e/2][] = "&_argStr".$types['s'];
+							$parseArgs[$e/2][] = "&_argStr".$types['s']."_len";
+							$callArgs[$e/2][] = "wxString(_argStr{$types['s']}, wxConvUTF8)";
+							$types['s']++;
+							break;
 						case "const wxString&":
 							$methodArgs[$e][$i] = "char *";
 							$argStr[$e/2].="s";
@@ -1959,7 +1959,7 @@ PHP_METHOD(php_<?=$className?>, Connect)
 						case "long int":
 						case "void**":
 						case "int":
-                                                case "double":
+						case "double":
 						case "long":
 							$argStr[$e/2].="l";
 							$parseArgs[$e/2][] = "&_argLong".$types['l'];

@@ -51,6 +51,9 @@
 #include <wx/xrc/xmlres.h>
 #include <wx/html/helpctrl.h>
 #include <wx/fs_zip.h>
+#include <wx/fs_zip.h>
+#include <wx/sstream.h>
+#include <wx/mstream.h>
 
 #ifdef HAVE_CONFIG_H
 #include "config.h"

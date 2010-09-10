@@ -717,6 +717,8 @@ PHP_METHOD(php_wxScrolledWindow, __construct);
 PHP_METHOD(php_wxScrolledWindow, SetScrollRate);
 PHP_METHOD(php_wxScrolledWindow, Connect);
 PHP_METHOD(php_wxIdleEvent, __construct);
+PHP_METHOD(php_wxStringInputStream, __construct);
+PHP_METHOD(php_wxMemoryInputStream, __construct);
 PHP_METHOD(php_wxSpinEvent, GetPosition);
 PHP_METHOD(php_wxScrollEvent, GetPosition);
 PHP_METHOD(php_wxSpinButton, __construct);

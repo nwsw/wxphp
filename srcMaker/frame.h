@@ -686,6 +686,9 @@ class wxImage_php : public wxImage{
 	wxImage_php(int arg0 , int arg1 , bool arg2 = true):wxImage(arg0 , arg1 , arg2)
 	{
 	}
+	wxImage_php(wxInputStream& arg0 , wxBitmapType arg1 = wxBITMAP_TYPE_XPM , int arg2 = -1):wxImage(arg0 , arg1 , arg2)
+	{
+	}
 	zval *evnArray;
 	void onEvent(wxEvent& evnt);
 	void ***tsrm_ls;
@@ -4321,6 +4324,54 @@ static function_entry php_wxIdleEvent_functions[] = {
         PHP_ME(php_wxEvent, ShouldPropagate, NULL,ZEND_ACC_PUBLIC)
         PHP_ME(php_wxEvent, StopPropagation, NULL,ZEND_ACC_PUBLIC)
         PHP_ME(php_wxEvent, ResumePropagation, NULL,ZEND_ACC_PUBLIC)
+	{ NULL, NULL, NULL }
+};
+extern zend_class_entry *php_wxStringInputStream_entry;
+void php_wxStringInputStream_destruction_handler(zend_rsrc_list_entry * TSRMLS_DC);
+
+#define PHP_wxStringInputStream_NAME "wxStringInputStream"
+#define le_wxStringInputStream_name  "native wxStringInputStream"
+
+class wxStringInputStream_php : public wxStringInputStream{
+	public:
+	wxStringInputStream_php(const wxString& arg0):wxStringInputStream(arg0)
+	{
+	}
+	zval *evnArray;
+	void onEvent(wxEvent& evnt);
+	void ***tsrm_ls;
+	zval* phpObj;
+};
+
+
+extern int le_wxStringInputStream;
+
+static function_entry php_wxStringInputStream_functions[] = {
+        PHP_ME(php_wxStringInputStream, __construct, NULL,ZEND_ACC_PUBLIC|ZEND_ACC_CTOR)
+	{ NULL, NULL, NULL }
+};
+extern zend_class_entry *php_wxMemoryInputStream_entry;
+void php_wxMemoryInputStream_destruction_handler(zend_rsrc_list_entry * TSRMLS_DC);
+
+#define PHP_wxMemoryInputStream_NAME "wxMemoryInputStream"
+#define le_wxMemoryInputStream_name  "native wxMemoryInputStream"
+
+class wxMemoryInputStream_php : public wxMemoryInputStream{
+	public:
+	wxMemoryInputStream_php(const void* arg0 , int arg1):wxMemoryInputStream(arg0 , arg1)
+	{
+	}
+	zval *evnArray;
+	void onEvent(wxEvent& evnt);
+	void ***tsrm_ls;
+	zval* phpObj;
+};
+
+
+extern int le_wxMemoryInputStream;
+
+static function_entry php_wxMemoryInputStream_functions[] = {
+        PHP_ME(php_wxMemoryInputStream, __construct, NULL,ZEND_ACC_PUBLIC|ZEND_ACC_CTOR)
 	{ NULL, NULL, NULL }
 };
 extern zend_class_entry *php_wxSpinEvent_entry;

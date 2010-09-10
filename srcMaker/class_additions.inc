@@ -1,4 +1,45 @@
 <?php
+// Stream classes do not work within the current framework, as they do not
+// inherit from wxObject. wxWidgets was patched to have wxStreamBase 
+// derive from wxObject.
+$defIni["wxStreamBase"]	= array(
+	"_type" => "abstract"
+	);
+
+$defIni["wxInputStream"]	= array(
+	"_type" => "abstract",
+	"_implements"	=> Array("wxStreamBase")
+	);
+
+$defIni["wxStringInputStream"]	= array(
+	"_implements"	=> Array("wxInputStream"),
+	"wxStringInputStream"		=> array(
+		array("void","const wxString&"),
+		array(
+			array(1,1),
+			array(null,null)
+			)
+		)
+	);
+
+$defIni["wxMemoryInputStream"]	= array(
+	"_implements"	=> Array("wxInputStream"),
+	"wxMemoryInputStream"		=> array(
+		array("void","const void*","int"),
+		array(
+			array(1,1,1),
+			array(null,null,null)
+			)
+		)
+	);
+
+$defIni["wxImage"]["wxImage"][] = array("void","wxInputStream&","wxBitmapType","int");
+$defIni["wxImage"]["wxImage"][] = array(
+	array(1,1),
+	array(null,null,wxBITMAP_TYPE_XPM,-1)
+	);
+
+
 $defIni["wxSpinEvent"]	= array(
 	"_implements"	=> Array("wxCommandEvent","wxEvent"),
 	"GetPosition" => array(

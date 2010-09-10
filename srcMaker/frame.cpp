@@ -6656,6 +6656,57 @@ PHP_METHOD(php_wxImage, __construct)
 			
 		}
 	}
+	valid=1;
+	if (zend_parse_parameters_ex(ZEND_PARSE_PARAMS_QUIET, ZEND_NUM_ARGS() TSRMLS_CC, "z!|l!l!", &_argObj0 , &_argLong0 , &_argLong1 ) == SUCCESS)
+	{
+		
+		if(_argObj0)
+		if (valid) 
+		{
+			if(_argObj0->type==IS_OBJECT && zend_hash_find(Z_OBJPROP_P(_argObj0), _wxResource , sizeof(_wxResource),  (void **)&tmp) == SUCCESS)
+			{
+				id_to_find0 = Z_RESVAL_P(*tmp);
+				_ptrObj0 = zend_list_find(id_to_find0, &rsrc_type);
+				if (!_ptrObj0 || (rsrc_type != le_wxStringInputStream && rsrc_type != le_wxMemoryInputStream))
+					valid = 0;
+			}
+			else if(_argObj0->type==IS_LONG)
+				_ptrObj0= (void *)_argObj0->value.lval;
+			else if(_argObj0->type!=IS_NULL)
+				valid = 0;
+		}
+		else
+			valid = 0;
+		if(valid)
+		{
+			int gr = ZEND_NUM_ARGS(); 
+			switch(gr)
+			{
+				case 3:
+					_this = new wxImage_php(*(wxInputStream *) _ptrObj0 , (wxBitmapType) _argLong0 , (int)_argLong1);
+					break;
+				case 2:
+					_this = new wxImage_php(*(wxInputStream *) _ptrObj0 , (wxBitmapType) _argLong0);
+					break;
+				case 1:
+					_this = new wxImage_php(*(wxInputStream *) _ptrObj0);
+					break;
+				default:
+					break;
+			}
+			long id_to_find = zend_list_insert(_this, le_wxImage);
+			add_property_resource(getThis(), _wxResource, id_to_find);					
+			MAKE_STD_ZVAL(((wxImage_php*) _this)->evnArray);
+			array_init(((wxImage_php*) _this)->evnArray);
+			MAKE_STD_ZVAL(((wxImage_php*) _this)->phpObj);
+			*((wxImage_php*) _this)->phpObj = *getThis();
+			zval_copy_ctor(((wxImage_php*) _this)->phpObj);
+			#ifdef ZTS 
+			((wxImage_php*) _this)->TSRMLS_C = TSRMLS_C;
+			#endif
+			
+		}
+	}
 }
 PHP_METHOD(php_wxImage, Scale)
 {
@@ -29030,7 +29081,7 @@ PHP_METHOD(php_wxSocketBase, Write)
 			switch(gr)
 			{
 				case 2:
-					 ((wxSocketBase_php*)_this)->Write(&_argStr0 , (unsigned int)_argLong0);
+					 ((wxSocketBase_php*)_this)->Write(_argStr0 , (unsigned int)_argLong0);
 					break;
 				default:
 					break;
@@ -34132,6 +34183,85 @@ PHP_METHOD(php_wxIdleEvent, __construct)
 			zval_copy_ctor(((wxIdleEvent_php*) _this)->phpObj);
 			#ifdef ZTS 
 			((wxIdleEvent_php*) _this)->TSRMLS_C = TSRMLS_C;
+			#endif
+			
+		}
+	}
+}
+void php_wxStringInputStream_destruction_handler(zend_rsrc_list_entry *rsrc TSRMLS_DC) 
+{
+	}			
+PHP_METHOD(php_wxStringInputStream, __construct)
+{
+	char _wxResource[] = "wxResource";
+	int valid = 1;
+	void *_this;
+	char* _argStr0;
+	int _argStr0_len;
+	valid=1;
+	if (zend_parse_parameters_ex(ZEND_PARSE_PARAMS_QUIET, ZEND_NUM_ARGS() TSRMLS_CC, "s!", &_argStr0 , &_argStr0_len ) == SUCCESS)
+	{
+		
+		if(valid)
+		{
+			int gr = ZEND_NUM_ARGS(); 
+			switch(gr)
+			{
+				case 1:
+					_this = new wxStringInputStream_php(wxString(_argStr0, wxConvUTF8));
+					break;
+				default:
+					break;
+			}
+			long id_to_find = zend_list_insert(_this, le_wxStringInputStream);
+			add_property_resource(getThis(), _wxResource, id_to_find);					
+			MAKE_STD_ZVAL(((wxStringInputStream_php*) _this)->evnArray);
+			array_init(((wxStringInputStream_php*) _this)->evnArray);
+			MAKE_STD_ZVAL(((wxStringInputStream_php*) _this)->phpObj);
+			*((wxStringInputStream_php*) _this)->phpObj = *getThis();
+			zval_copy_ctor(((wxStringInputStream_php*) _this)->phpObj);
+			#ifdef ZTS 
+			((wxStringInputStream_php*) _this)->TSRMLS_C = TSRMLS_C;
+			#endif
+			
+		}
+	}
+}
+void php_wxMemoryInputStream_destruction_handler(zend_rsrc_list_entry *rsrc TSRMLS_DC) 
+{
+	}			
+PHP_METHOD(php_wxMemoryInputStream, __construct)
+{
+	char _wxResource[] = "wxResource";
+	int valid = 1;
+	void *_this;
+	long _argLong0;
+	char* _argStr0;
+	int _argStr0_len;
+	valid=1;
+	if (zend_parse_parameters_ex(ZEND_PARSE_PARAMS_QUIET, ZEND_NUM_ARGS() TSRMLS_CC, "s!l!", &_argStr0 , &_argStr0_len , &_argLong0 ) == SUCCESS)
+	{
+		
+		if(valid)
+		{
+			int gr = ZEND_NUM_ARGS(); 
+			switch(gr)
+			{
+				case 2:
+					_this = new wxMemoryInputStream_php(_argStr0 , (int)_argLong0);
+					break;
+				default:
+					break;
+			}
+			long id_to_find = zend_list_insert(_this, le_wxMemoryInputStream);
+			add_property_resource(getThis(), _wxResource, id_to_find);					
+			MAKE_STD_ZVAL(((wxMemoryInputStream_php*) _this)->evnArray);
+			array_init(((wxMemoryInputStream_php*) _this)->evnArray);
+			MAKE_STD_ZVAL(((wxMemoryInputStream_php*) _this)->phpObj);
+			*((wxMemoryInputStream_php*) _this)->phpObj = *getThis();
+			zval_copy_ctor(((wxMemoryInputStream_php*) _this)->phpObj);
+			#ifdef ZTS 
+			((wxMemoryInputStream_php*) _this)->TSRMLS_C = TSRMLS_C;
 			#endif
 			
 		}
