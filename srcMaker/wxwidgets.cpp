@@ -124,6 +124,8 @@ zend_class_entry *php_wxListEvent_entry;
 int le_wxListEvent;
 zend_class_entry *php_wxComboBox_entry;
 int le_wxComboBox;
+zend_class_entry *php_wxPrinter_entry;
+int le_wxPrinter;
 zend_class_entry *php_wxPrintout_entry;
 int le_wxPrintout;
 zend_class_entry *php_wxDC_entry;
@@ -174,6 +176,8 @@ zend_class_entry *php_wxToggleButton_entry;
 int le_wxToggleButton;
 zend_class_entry *php_wxChoice_entry;
 int le_wxChoice;
+zend_class_entry *php_wxStyledTextCtrl_entry;
+int le_wxStyledTextCtrl;
 zend_class_entry *php_wxImageList_entry;
 int le_wxImageList;
 zend_class_entry *php_wxXmlResource_entry;
@@ -223,18 +227,18 @@ PHP_FUNCTION(php_wxInitialize)
 
 PHP_FUNCTION(php_wxInitAllImageHandlers)
 {
-        wxInitAllImageHandlers();
+	wxInitAllImageHandlers();
 	RETVAL_TRUE;
 }
 
 PHP_FUNCTION(php_wxExecute)
 {
-        char* _argStr0;
+	char* _argStr0;
 	int _argStr0_len;
-        if (zend_parse_parameters_ex(ZEND_PARSE_PARAMS_QUIET, ZEND_NUM_ARGS() TSRMLS_CC, "s", &_argStr0 , &_argStr0_len ) == SUCCESS)
-        {
+	if (zend_parse_parameters_ex(ZEND_PARSE_PARAMS_QUIET, ZEND_NUM_ARGS() TSRMLS_CC, "s", &_argStr0 , &_argStr0_len ) == SUCCESS)
+	{
 		long ret0;
-	        ret0 = wxExecute(wxString(_argStr0, wxConvUTF8));
+		ret0 = wxExecute(wxString(_argStr0, wxConvUTF8));
 		RETURN_LONG((long)ret0)
 	}
 }
@@ -648,6 +652,13 @@ PHP_FUNCTION(php_wxDynamicCast){
                                 add_property_resource(return_value, _wxResource, id_to_find);
                                 return;
                         }
+                        else if(!strcmp(_argStr0,"wxPrinter")){
+                                object_init_ex(return_value,php_wxPrinter_entry);
+                                wxPrinter* ret = wxDynamicCast(_ptrObj0,wxPrinter_php);
+                                long id_to_find = zend_list_insert(ret, le_wxPrinter);
+                                add_property_resource(return_value, _wxResource, id_to_find);
+                                return;
+                        }
                         else if(!strcmp(_argStr0,"wxPrintout")){
                                 object_init_ex(return_value,php_wxPrintout_entry);
                                 wxPrintout* ret = wxDynamicCast(_ptrObj0,wxPrintout_php);
@@ -799,6 +810,13 @@ PHP_FUNCTION(php_wxDynamicCast){
                                 object_init_ex(return_value,php_wxChoice_entry);
                                 wxChoice* ret = wxDynamicCast(_ptrObj0,wxChoice_php);
                                 long id_to_find = zend_list_insert(ret, le_wxChoice);
+                                add_property_resource(return_value, _wxResource, id_to_find);
+                                return;
+                        }
+                        else if(!strcmp(_argStr0,"wxStyledTextCtrl")){
+                                object_init_ex(return_value,php_wxStyledTextCtrl_entry);
+                                wxStyledTextCtrl* ret = wxDynamicCast(_ptrObj0,wxStyledTextCtrl_php);
+                                long id_to_find = zend_list_insert(ret, le_wxStyledTextCtrl);
                                 add_property_resource(return_value, _wxResource, id_to_find);
                                 return;
                         }
@@ -1183,6 +1201,10 @@ PHP_MINIT_FUNCTION(php_wxWidgets)
 	php_wxComboBox_entry = zend_register_internal_class(&cf TSRMLS_CC);
 	le_wxComboBox = zend_register_list_destructors_ex(php_wxComboBox_destruction_handler,NULL, le_wxComboBox_name ,module_number);
 
+	INIT_CLASS_ENTRY(cf, PHP_wxPrinter_NAME , php_wxPrinter_functions);
+	php_wxPrinter_entry = zend_register_internal_class(&cf TSRMLS_CC);
+	le_wxPrinter = zend_register_list_destructors_ex(php_wxPrinter_destruction_handler,NULL, le_wxPrinter_name ,module_number);
+
 	INIT_CLASS_ENTRY(cf, PHP_wxPrintout_NAME , php_wxPrintout_functions);
 	php_wxPrintout_entry = zend_register_internal_class(&cf TSRMLS_CC);
 	le_wxPrintout = zend_register_list_destructors_ex(php_wxPrintout_destruction_handler,NULL, le_wxPrintout_name ,module_number);
@@ -1282,6 +1304,10 @@ PHP_MINIT_FUNCTION(php_wxWidgets)
 	INIT_CLASS_ENTRY(cf, PHP_wxChoice_NAME , php_wxChoice_functions);
 	php_wxChoice_entry = zend_register_internal_class(&cf TSRMLS_CC);
 	le_wxChoice = zend_register_list_destructors_ex(php_wxChoice_destruction_handler,NULL, le_wxChoice_name ,module_number);
+
+	INIT_CLASS_ENTRY(cf, PHP_wxStyledTextCtrl_NAME , php_wxStyledTextCtrl_functions);
+	php_wxStyledTextCtrl_entry = zend_register_internal_class(&cf TSRMLS_CC);
+	le_wxStyledTextCtrl = zend_register_list_destructors_ex(php_wxStyledTextCtrl_destruction_handler,NULL, le_wxStyledTextCtrl_name ,module_number);
 
 	INIT_CLASS_ENTRY(cf, PHP_wxImageList_NAME , php_wxImageList_functions);
 	php_wxImageList_entry = zend_register_internal_class(&cf TSRMLS_CC);

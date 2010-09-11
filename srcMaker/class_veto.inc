@@ -1,4 +1,4 @@
 <?php
-unset($defIni['wxStyledTextCtrl']);
-unset($defIni['wxPrinter']);
+//unset($defIni['wxStyledTextCtrl']);
+//unset($defIni['wxPrinter']);
 ?>

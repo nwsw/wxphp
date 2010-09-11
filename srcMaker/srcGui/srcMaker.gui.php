@@ -4,7 +4,8 @@
 	$cls = unserialize(file_get_contents('classes.dump'));
 	ksort($cls);
 	
-	$clo = unserialize(file_get_contents('classes.out'));
+	if (file_exists('classes.out')) $clo = unserialize(file_get_contents('classes.out'));
+	else $clo = unserialize(file_get_contents('../classes.out'));
 	if(!$clo)
 		$clo = array();
 		
@@ -18,6 +19,8 @@
 			$hd = fopen("classes.out",'w');
 			fwrite($hd,serialize($clo));
 			fclose($hd);
+
+			file_put_contents("_defIni.txt",print_r($clo,true));
 		}
 		
 		function treeSelection($evn)
@@ -94,6 +97,7 @@
 			foreach($optIndexArr as $optIndex)
 				$this->lst->Check($optIndex,true);
 			echo "tree selection changed\n";
+			if (isset($clo[$selClass]['_implements'])) var_dump($clo[$selClass]['_implements']);
 		}
 		
 		function saveImplements($evn)
@@ -103,8 +107,6 @@
 			global $clo;
 			global $selClass;
 			$l=$evn->GetSelection();
-			var_dump($l);
-			var_dump($clo[$selClass]['_implements']);
 			$imps = $cls[$selClass]['_implements'];
 			if(!isset($clo[$selClass]['_implements']))
 				$clo[$selClass]['_implements'] = array();
@@ -114,6 +116,8 @@
 				array_splice($clo[$selClass]['_implements'],$c,1);
 			if(!count($clo[$selClass]['_implements']))
 				unset($clo[$selClass]['_implements']);
+
+			if (isset($clo[$selClass]['_implements'])) var_dump($clo[$selClass]['_implements']);
 		}
 		
 		function checkLst($evn)
@@ -237,7 +241,7 @@
 			
 			$sz 		= new wxBoxSizer(wxHORIZONTAL);
 			$sw 		= new wxSplitterWindow($this,-1,wxDefaultPosition,wxDefaultSize,wxSP_NO_XP_THEME);
-			$tree 	= new wxTreeCtrl($sw,-1);
+			$tree 	= new wxTreeCtrl($sw,-1,wxDefaultPosition,wxDefaultSize,wxTR_HAS_BUTTONS);
 			$dummy 	= new wxPanel($sw);
 			
 			
@@ -261,10 +265,11 @@
 			//$dummy->Connect(wxEVT_COMMAND_TEXT_UPDATED,array($this,'simpleCB'));
 			
 			$rtNode = $tree->AddRoot("wxPHP");
-			global $cls;
+			global $cls,$clo;
 			foreach($cls as $k => $v)
 			{
 				$clNode = $tree->AppendItem($rtNode,$k);
+				if (!empty($clo[$k])) $tree->SetItemBold($clNode);
 				/*foreach($v as $k1=>$v1)
 				{
 					if($k1[0]=="_")
@@ -273,7 +278,7 @@
 				}*/
 			}
 				
-				
+			$tree->Expand($rtNode);
 			$tree->Connect(wxEVT_COMMAND_TREE_SEL_CHANGED,array($this,"treeSelection"));
 			//$tree->ExpandAll();
 			$this->tree = $tree;
@@ -284,15 +289,14 @@
 			
 			$this->SetSizer($sz);
 			$tb = $this->CreateToolBar();
-			$tb->AddTool(-1,"Abrir",new wxBitmap("sample.xpm",wxBITMAP_TYPE_XPM),"Abrir documentos");
+			$tb->AddTool(-1,"Abrir",new wxBitmap("sample.xpm",wxBITMAP_TYPE_XPM),"Save to 'classes.out'");
 			$tb->AddSeparator();
 			$tb->Realize();
 			
 			$mb = new wxMenuBar();
 			$mn = new wxMenu();
 			
-			$mn->AppendCheckItem(-1,"&Salvar");
-			//$mn->Append(15,"abrir","serve para abrir");
+			$mn->AppendCheckItem(-1,"&Save");
 			
 			$mb->Append($mn,"&File");
 			$this->SetMenuBar($mb);
@@ -307,6 +311,8 @@
 	{
 		function OnInit()
 		{
+			wxInitAllImageHandlers();
+
 			$zs = new myFrame();
 			$zs->Show();
 			
@@ -324,10 +330,6 @@
 	}
 
 	$xt = new myApp();
-
-	//if(wxInitialize())
-	{
-		wxApp::SetInstance($xt);
-		wxEntry();
-	}
+	wxApp::SetInstance($xt);
+	wxEntry();
 ?>

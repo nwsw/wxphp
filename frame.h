@@ -475,6 +475,9 @@ class wxColour_php : public wxColour{
 	wxColour_php(const wxColour& arg0):wxColour(arg0)
 	{
 	}
+	wxColour_php(long unsigned int arg0):wxColour(arg0)
+	{
+	}
 	zval *evnArray;
 	void onEvent(wxEvent& evnt);
 	void ***tsrm_ls;
@@ -2846,6 +2849,32 @@ static function_entry php_wxComboBox_functions[] = {
         PHP_ME(php_wxWindowBase, FindWindow, NULL,ZEND_ACC_PUBLIC)
 	{ NULL, NULL, NULL }
 };
+extern zend_class_entry *php_wxPrinter_entry;
+void php_wxPrinter_destruction_handler(zend_rsrc_list_entry * TSRMLS_DC);
+
+#define PHP_wxPrinter_NAME "wxPrinter"
+#define le_wxPrinter_name  "native wxPrinter"
+
+class wxPrinter_php : public wxPrinter{
+	public:
+	wxPrinter_php(wxPrintDialogData* arg0 = 0u):wxPrinter(arg0)
+	{
+	}
+	zval *evnArray;
+	void onEvent(wxEvent& evnt);
+	void ***tsrm_ls;
+	zval* phpObj;
+};
+
+
+extern int le_wxPrinter;
+
+static function_entry php_wxPrinter_functions[] = {
+        PHP_ME(php_wxPrinter, __construct, NULL,ZEND_ACC_PUBLIC|ZEND_ACC_CTOR)
+        PHP_ME(php_wxPrinter, Print, NULL,ZEND_ACC_PUBLIC)
+        PHP_ME(php_wxPrinter, PrintDialog, NULL,ZEND_ACC_PUBLIC)
+	{ NULL, NULL, NULL }
+};
 extern zend_class_entry *php_wxPrintout_entry;
 void php_wxPrintout_destruction_handler(zend_rsrc_list_entry * TSRMLS_DC);
 
@@ -3856,6 +3885,211 @@ static function_entry php_wxChoice_functions[] = {
         PHP_ME(php_wxChoice, Delete, NULL,ZEND_ACC_PUBLIC)
         PHP_ME(php_wxChoice, Append, NULL,ZEND_ACC_PUBLIC)
         PHP_ME(php_wxChoice, Insert, NULL,ZEND_ACC_PUBLIC)
+        PHP_ME(php_wxWindow, Show, NULL,ZEND_ACC_PUBLIC)
+        PHP_ME(php_wxWindow, Create, NULL,ZEND_ACC_PUBLIC)
+        PHP_ME(php_wxWindow, Destroy, NULL,ZEND_ACC_PUBLIC)
+        PHP_ME(php_wxWindow, Raise, NULL,ZEND_ACC_PUBLIC)
+        PHP_ME(php_wxWindow, Lower, NULL,ZEND_ACC_PUBLIC)
+        PHP_ME(php_wxWindow, Enable, NULL,ZEND_ACC_PUBLIC)
+        PHP_ME(php_wxWindow, IsRetained, NULL,ZEND_ACC_PUBLIC)
+        PHP_ME(php_wxWindow, SetFocus, NULL,ZEND_ACC_PUBLIC)
+        PHP_ME(php_wxWindow, Reparent, NULL,ZEND_ACC_PUBLIC)
+        PHP_ME(php_wxWindow, WarpPointer, NULL,ZEND_ACC_PUBLIC)
+        PHP_ME(php_wxWindow, Update, NULL,ZEND_ACC_PUBLIC)
+        PHP_ME(php_wxWindow, ClearBackground, NULL,ZEND_ACC_PUBLIC)
+        PHP_ME(php_wxWindow, SetBackgroundColour, NULL,ZEND_ACC_PUBLIC)
+        PHP_ME(php_wxWindow, SetForegroundColour, NULL,ZEND_ACC_PUBLIC)
+        PHP_ME(php_wxWindow, SetCursor, NULL,ZEND_ACC_PUBLIC)
+        PHP_ME(php_wxWindow, SetFont, NULL,ZEND_ACC_PUBLIC)
+        PHP_ME(php_wxWindow, GetCharHeight, NULL,ZEND_ACC_PUBLIC)
+        PHP_ME(php_wxWindow, GetCharWidth, NULL,ZEND_ACC_PUBLIC)
+        PHP_ME(php_wxWindow, SetScrollbar, NULL,ZEND_ACC_PUBLIC)
+        PHP_ME(php_wxWindow, SetScrollPos, NULL,ZEND_ACC_PUBLIC)
+        PHP_ME(php_wxWindow, GetScrollThumb, NULL,ZEND_ACC_PUBLIC)
+        PHP_ME(php_wxWindow, GetScrollRange, NULL,ZEND_ACC_PUBLIC)
+        PHP_ME(php_wxWindow, AddChild, NULL,ZEND_ACC_PUBLIC)
+        PHP_ME(php_wxWindow, RemoveChild, NULL,ZEND_ACC_PUBLIC)
+        PHP_ME(php_wxWindow, GetHandle, NULL,ZEND_ACC_PUBLIC)
+        PHP_ME(php_wxWindow, Refresh, NULL,ZEND_ACC_PUBLIC)
+        PHP_ME(php_wxWindow, IsFrozen, NULL,ZEND_ACC_PUBLIC)
+        PHP_ME(php_wxEvtHandler, Connect, NULL,ZEND_ACC_PUBLIC)
+        PHP_ME(php_wxWindowBase, SetSizer, NULL,ZEND_ACC_PUBLIC)
+        PHP_ME(php_wxWindowBase, GetSizer, NULL,ZEND_ACC_PUBLIC)
+        PHP_ME(php_wxWindowBase, Layout, NULL,ZEND_ACC_PUBLIC)
+        PHP_ME(php_wxWindowBase, Fit, NULL,ZEND_ACC_PUBLIC)
+        PHP_ME(php_wxWindowBase, SetWindowStyle, NULL,ZEND_ACC_PUBLIC)
+        PHP_ME(php_wxWindowBase, PopupMenu, NULL,ZEND_ACC_PUBLIC)
+        PHP_ME(php_wxWindowBase, IsShown, NULL,ZEND_ACC_PUBLIC)
+        PHP_ME(php_wxWindowBase, IsEnabled, NULL,ZEND_ACC_PUBLIC)
+        PHP_ME(php_wxWindowBase, IsShownOnScreen, NULL,ZEND_ACC_PUBLIC)
+        PHP_ME(php_wxWindowBase, UpdateWindowUI, NULL,ZEND_ACC_PUBLIC)
+        PHP_ME(php_wxWindowBase, FindWindow, NULL,ZEND_ACC_PUBLIC)
+	{ NULL, NULL, NULL }
+};
+extern zend_class_entry *php_wxStyledTextCtrl_entry;
+void php_wxStyledTextCtrl_destruction_handler(zend_rsrc_list_entry * TSRMLS_DC);
+
+#define PHP_wxStyledTextCtrl_NAME "wxStyledTextCtrl"
+#define le_wxStyledTextCtrl_name  "native wxStyledTextCtrl"
+
+class wxStyledTextCtrl_php : public wxStyledTextCtrl{
+	public:
+	wxStyledTextCtrl_php(wxWindow* arg0 , int arg1 = wxID_ANY , const wxPoint& arg2 = wxDefaultPosition , const wxSize& arg3 = wxDefaultSize , long int arg4 = 0 , const wxString& arg5 = wxSTCNameStr):wxStyledTextCtrl(arg0 , arg1 , arg2 , arg3 , arg4 , arg5)
+	{
+	}
+	zval *evnArray;
+	void onEvent(wxEvent& evnt);
+	void ***tsrm_ls;
+	zval* phpObj;
+};
+
+
+extern int le_wxStyledTextCtrl;
+
+static function_entry php_wxStyledTextCtrl_functions[] = {
+        PHP_ME(php_wxStyledTextCtrl, __construct, NULL,ZEND_ACC_PUBLIC|ZEND_ACC_CTOR)
+        PHP_ME(php_wxStyledTextCtrl, AddText, NULL,ZEND_ACC_PUBLIC)
+        PHP_ME(php_wxStyledTextCtrl, GetAnchor, NULL,ZEND_ACC_PUBLIC)
+        PHP_ME(php_wxStyledTextCtrl, Redo, NULL,ZEND_ACC_PUBLIC)
+        PHP_ME(php_wxStyledTextCtrl, SelectAll, NULL,ZEND_ACC_PUBLIC)
+        PHP_ME(php_wxStyledTextCtrl, SetSavePoint, NULL,ZEND_ACC_PUBLIC)
+        PHP_ME(php_wxStyledTextCtrl, CanRedo, NULL,ZEND_ACC_PUBLIC)
+        PHP_ME(php_wxStyledTextCtrl, GetViewWhiteSpace, NULL,ZEND_ACC_PUBLIC)
+        PHP_ME(php_wxStyledTextCtrl, SetViewWhiteSpace, NULL,ZEND_ACC_PUBLIC)
+        PHP_ME(php_wxStyledTextCtrl, GotoLine, NULL,ZEND_ACC_PUBLIC)
+        PHP_ME(php_wxStyledTextCtrl, GotoPos, NULL,ZEND_ACC_PUBLIC)
+        PHP_ME(php_wxStyledTextCtrl, SetAnchor, NULL,ZEND_ACC_PUBLIC)
+        PHP_ME(php_wxStyledTextCtrl, ConvertEOLs, NULL,ZEND_ACC_PUBLIC)
+        PHP_ME(php_wxStyledTextCtrl, GetEOLMode, NULL,ZEND_ACC_PUBLIC)
+        PHP_ME(php_wxStyledTextCtrl, SetEOLMode, NULL,ZEND_ACC_PUBLIC)
+        PHP_ME(php_wxStyledTextCtrl, SetTabWidth, NULL,ZEND_ACC_PUBLIC)
+        PHP_ME(php_wxStyledTextCtrl, GetTabWidth, NULL,ZEND_ACC_PUBLIC)
+        PHP_ME(php_wxStyledTextCtrl, SetCodePage, NULL,ZEND_ACC_PUBLIC)
+        PHP_ME(php_wxStyledTextCtrl, MarkerDefine, NULL,ZEND_ACC_PUBLIC)
+        PHP_ME(php_wxStyledTextCtrl, MarkerSetForeground, NULL,ZEND_ACC_PUBLIC)
+        PHP_ME(php_wxStyledTextCtrl, MarkerSetBackground, NULL,ZEND_ACC_PUBLIC)
+        PHP_ME(php_wxStyledTextCtrl, MarkerAdd, NULL,ZEND_ACC_PUBLIC)
+        PHP_ME(php_wxStyledTextCtrl, MarkerDelete, NULL,ZEND_ACC_PUBLIC)
+        PHP_ME(php_wxStyledTextCtrl, MarkerDeleteAll, NULL,ZEND_ACC_PUBLIC)
+        PHP_ME(php_wxStyledTextCtrl, MarkerGet, NULL,ZEND_ACC_PUBLIC)
+        PHP_ME(php_wxStyledTextCtrl, MarkerNext, NULL,ZEND_ACC_PUBLIC)
+        PHP_ME(php_wxStyledTextCtrl, MarkerPrevious, NULL,ZEND_ACC_PUBLIC)
+        PHP_ME(php_wxStyledTextCtrl, MarkerDefineBitmap, NULL,ZEND_ACC_PUBLIC)
+        PHP_ME(php_wxStyledTextCtrl, MarkerAddSet, NULL,ZEND_ACC_PUBLIC)
+        PHP_ME(php_wxStyledTextCtrl, MarkerSetAlpha, NULL,ZEND_ACC_PUBLIC)
+        PHP_ME(php_wxStyledTextCtrl, SetMarginType, NULL,ZEND_ACC_PUBLIC)
+        PHP_ME(php_wxStyledTextCtrl, GetMarginType, NULL,ZEND_ACC_PUBLIC)
+        PHP_ME(php_wxStyledTextCtrl, SetMarginWidth, NULL,ZEND_ACC_PUBLIC)
+        PHP_ME(php_wxStyledTextCtrl, GetMarginWidth, NULL,ZEND_ACC_PUBLIC)
+        PHP_ME(php_wxStyledTextCtrl, SetMarginMask, NULL,ZEND_ACC_PUBLIC)
+        PHP_ME(php_wxStyledTextCtrl, GetMarginMask, NULL,ZEND_ACC_PUBLIC)
+        PHP_ME(php_wxStyledTextCtrl, SetMarginSensitive, NULL,ZEND_ACC_PUBLIC)
+        PHP_ME(php_wxStyledTextCtrl, GetMarginSensitive, NULL,ZEND_ACC_PUBLIC)
+        PHP_ME(php_wxStyledTextCtrl, StyleResetDefault, NULL,ZEND_ACC_PUBLIC)
+        PHP_ME(php_wxStyledTextCtrl, StyleSetUnderline, NULL,ZEND_ACC_PUBLIC)
+        PHP_ME(php_wxStyledTextCtrl, GetCaretPeriod, NULL,ZEND_ACC_PUBLIC)
+        PHP_ME(php_wxStyledTextCtrl, SetCaretPeriod, NULL,ZEND_ACC_PUBLIC)
+        PHP_ME(php_wxStyledTextCtrl, SetIndent, NULL,ZEND_ACC_PUBLIC)
+        PHP_ME(php_wxStyledTextCtrl, GetIndent, NULL,ZEND_ACC_PUBLIC)
+        PHP_ME(php_wxStyledTextCtrl, SetUseTabs, NULL,ZEND_ACC_PUBLIC)
+        PHP_ME(php_wxStyledTextCtrl, GetUseTabs, NULL,ZEND_ACC_PUBLIC)
+        PHP_ME(php_wxStyledTextCtrl, SetUseHorizontalScrollBar, NULL,ZEND_ACC_PUBLIC)
+        PHP_ME(php_wxStyledTextCtrl, GetUseHorizontalScrollBar, NULL,ZEND_ACC_PUBLIC)
+        PHP_ME(php_wxStyledTextCtrl, GetIndentationGuides, NULL,ZEND_ACC_PUBLIC)
+        PHP_ME(php_wxStyledTextCtrl, SetHighlightGuide, NULL,ZEND_ACC_PUBLIC)
+        PHP_ME(php_wxStyledTextCtrl, GetLineEndPosition, NULL,ZEND_ACC_PUBLIC)
+        PHP_ME(php_wxStyledTextCtrl, GetHighlightGuide, NULL,ZEND_ACC_PUBLIC)
+        PHP_ME(php_wxStyledTextCtrl, GetCodePage, NULL,ZEND_ACC_PUBLIC)
+        PHP_ME(php_wxStyledTextCtrl, SetCurrentPos, NULL,ZEND_ACC_PUBLIC)
+        PHP_ME(php_wxStyledTextCtrl, SetSelectionStart, NULL,ZEND_ACC_PUBLIC)
+        PHP_ME(php_wxStyledTextCtrl, GetSelectionStart, NULL,ZEND_ACC_PUBLIC)
+        PHP_ME(php_wxStyledTextCtrl, SetSelectionEnd, NULL,ZEND_ACC_PUBLIC)
+        PHP_ME(php_wxStyledTextCtrl, GetSelectionEnd, NULL,ZEND_ACC_PUBLIC)
+        PHP_ME(php_wxStyledTextCtrl, FindText, NULL,ZEND_ACC_PUBLIC)
+        PHP_ME(php_wxStyledTextCtrl, GetFirstVisibleLine, NULL,ZEND_ACC_PUBLIC)
+        PHP_ME(php_wxStyledTextCtrl, GetLine, NULL,ZEND_ACC_PUBLIC)
+        PHP_ME(php_wxStyledTextCtrl, GetLineCount, NULL,ZEND_ACC_PUBLIC)
+        PHP_ME(php_wxStyledTextCtrl, SetMarginLeft, NULL,ZEND_ACC_PUBLIC)
+        PHP_ME(php_wxStyledTextCtrl, GetMarginLeft, NULL,ZEND_ACC_PUBLIC)
+        PHP_ME(php_wxStyledTextCtrl, SetMarginRight, NULL,ZEND_ACC_PUBLIC)
+        PHP_ME(php_wxStyledTextCtrl, GetMarginRight, NULL,ZEND_ACC_PUBLIC)
+        PHP_ME(php_wxStyledTextCtrl, GetModify, NULL,ZEND_ACC_PUBLIC)
+        PHP_ME(php_wxStyledTextCtrl, SetSelection, NULL,ZEND_ACC_PUBLIC)
+        PHP_ME(php_wxStyledTextCtrl, GetSelectedText, NULL,ZEND_ACC_PUBLIC)
+        PHP_ME(php_wxStyledTextCtrl, GetTextRange, NULL,ZEND_ACC_PUBLIC)
+        PHP_ME(php_wxStyledTextCtrl, HideSelection, NULL,ZEND_ACC_PUBLIC)
+        PHP_ME(php_wxStyledTextCtrl, LineFromPosition, NULL,ZEND_ACC_PUBLIC)
+        PHP_ME(php_wxStyledTextCtrl, PositionFromLine, NULL,ZEND_ACC_PUBLIC)
+        PHP_ME(php_wxStyledTextCtrl, LineScroll, NULL,ZEND_ACC_PUBLIC)
+        PHP_ME(php_wxStyledTextCtrl, EnsureCaretVisible, NULL,ZEND_ACC_PUBLIC)
+        PHP_ME(php_wxStyledTextCtrl, ReplaceSelection, NULL,ZEND_ACC_PUBLIC)
+        PHP_ME(php_wxStyledTextCtrl, SetReadOnly, NULL,ZEND_ACC_PUBLIC)
+        PHP_ME(php_wxStyledTextCtrl, CanPaste, NULL,ZEND_ACC_PUBLIC)
+        PHP_ME(php_wxStyledTextCtrl, CanUndo, NULL,ZEND_ACC_PUBLIC)
+        PHP_ME(php_wxStyledTextCtrl, EmptyUndoBuffer, NULL,ZEND_ACC_PUBLIC)
+        PHP_ME(php_wxStyledTextCtrl, Undo, NULL,ZEND_ACC_PUBLIC)
+        PHP_ME(php_wxStyledTextCtrl, Cut, NULL,ZEND_ACC_PUBLIC)
+        PHP_ME(php_wxStyledTextCtrl, Copy, NULL,ZEND_ACC_PUBLIC)
+        PHP_ME(php_wxStyledTextCtrl, Paste, NULL,ZEND_ACC_PUBLIC)
+        PHP_ME(php_wxStyledTextCtrl, Clear, NULL,ZEND_ACC_PUBLIC)
+        PHP_ME(php_wxStyledTextCtrl, SetText, NULL,ZEND_ACC_PUBLIC)
+        PHP_ME(php_wxStyledTextCtrl, GetText, NULL,ZEND_ACC_PUBLIC)
+        PHP_ME(php_wxStyledTextCtrl, GetTextLength, NULL,ZEND_ACC_PUBLIC)
+        PHP_ME(php_wxStyledTextCtrl, SetOvertype, NULL,ZEND_ACC_PUBLIC)
+        PHP_ME(php_wxStyledTextCtrl, GetOvertype, NULL,ZEND_ACC_PUBLIC)
+        PHP_ME(php_wxStyledTextCtrl, SetCaretWidth, NULL,ZEND_ACC_PUBLIC)
+        PHP_ME(php_wxStyledTextCtrl, GetCaretWidth, NULL,ZEND_ACC_PUBLIC)
+        PHP_ME(php_wxStyledTextCtrl, ReplaceTarget, NULL,ZEND_ACC_PUBLIC)
+        PHP_ME(php_wxStyledTextCtrl, ReplaceTargetRE, NULL,ZEND_ACC_PUBLIC)
+        PHP_ME(php_wxStyledTextCtrl, SearchInTarget, NULL,ZEND_ACC_PUBLIC)
+        PHP_ME(php_wxStyledTextCtrl, SetSearchFlags, NULL,ZEND_ACC_PUBLIC)
+        PHP_ME(php_wxStyledTextCtrl, GetSearchFlags, NULL,ZEND_ACC_PUBLIC)
+        PHP_ME(php_wxStyledTextCtrl, ShowLines, NULL,ZEND_ACC_PUBLIC)
+        PHP_ME(php_wxStyledTextCtrl, HideLines, NULL,ZEND_ACC_PUBLIC)
+        PHP_ME(php_wxStyledTextCtrl, GetLineVisible, NULL,ZEND_ACC_PUBLIC)
+        PHP_ME(php_wxStyledTextCtrl, EnsureVisible, NULL,ZEND_ACC_PUBLIC)
+        PHP_ME(php_wxStyledTextCtrl, SetTabIndents, NULL,ZEND_ACC_PUBLIC)
+        PHP_ME(php_wxStyledTextCtrl, GetTabIndents, NULL,ZEND_ACC_PUBLIC)
+        PHP_ME(php_wxStyledTextCtrl, SetBackSpaceUnIndents, NULL,ZEND_ACC_PUBLIC)
+        PHP_ME(php_wxStyledTextCtrl, GetBackSpaceUnIndents, NULL,ZEND_ACC_PUBLIC)
+        PHP_ME(php_wxStyledTextCtrl, SetMouseDwellTime, NULL,ZEND_ACC_PUBLIC)
+        PHP_ME(php_wxStyledTextCtrl, GetMouseDwellTime, NULL,ZEND_ACC_PUBLIC)
+        PHP_ME(php_wxStyledTextCtrl, SetEndAtLastLine, NULL,ZEND_ACC_PUBLIC)
+        PHP_ME(php_wxStyledTextCtrl, GetEndAtLastLine, NULL,ZEND_ACC_PUBLIC)
+        PHP_ME(php_wxStyledTextCtrl, SetUseVerticalScrollBar, NULL,ZEND_ACC_PUBLIC)
+        PHP_ME(php_wxStyledTextCtrl, GetUseVerticalScrollBar, NULL,ZEND_ACC_PUBLIC)
+        PHP_ME(php_wxStyledTextCtrl, AppendText, NULL,ZEND_ACC_PUBLIC)
+        PHP_ME(php_wxStyledTextCtrl, LineLength, NULL,ZEND_ACC_PUBLIC)
+        PHP_ME(php_wxStyledTextCtrl, LinesOnScreen, NULL,ZEND_ACC_PUBLIC)
+        PHP_ME(php_wxStyledTextCtrl, UsePopUp, NULL,ZEND_ACC_PUBLIC)
+        PHP_ME(php_wxStyledTextCtrl, SetLexer, NULL,ZEND_ACC_PUBLIC)
+        PHP_ME(php_wxStyledTextCtrl, GetLexer, NULL,ZEND_ACC_PUBLIC)
+        PHP_ME(php_wxStyledTextCtrl, SetProperty, NULL,ZEND_ACC_PUBLIC)
+        PHP_ME(php_wxStyledTextCtrl, SetKeyWords, NULL,ZEND_ACC_PUBLIC)
+        PHP_ME(php_wxStyledTextCtrl, SetLexerLanguage, NULL,ZEND_ACC_PUBLIC)
+        PHP_ME(php_wxStyledTextCtrl, SetIndentationGuides, NULL,ZEND_ACC_PUBLIC)
+        PHP_ME(php_wxStyledTextCtrl, SetWrapMode, NULL,ZEND_ACC_PUBLIC)
+        PHP_ME(php_wxStyledTextCtrl, GetWrapMode, NULL,ZEND_ACC_PUBLIC)
+        PHP_ME(php_wxStyledTextCtrl, SaveFile, NULL,ZEND_ACC_PUBLIC)
+        PHP_ME(php_wxStyledTextCtrl, LoadFile, NULL,ZEND_ACC_PUBLIC)
+        PHP_ME(php_wxStyledTextCtrl, StyleClearAll, NULL,ZEND_ACC_PUBLIC)
+        PHP_ME(php_wxStyledTextCtrl, StyleSetForeground, NULL,ZEND_ACC_PUBLIC)
+        PHP_ME(php_wxStyledTextCtrl, StyleSetBackground, NULL,ZEND_ACC_PUBLIC)
+        PHP_ME(php_wxStyledTextCtrl, StyleSetBold, NULL,ZEND_ACC_PUBLIC)
+        PHP_ME(php_wxStyledTextCtrl, StyleSetItalic, NULL,ZEND_ACC_PUBLIC)
+        PHP_ME(php_wxStyledTextCtrl, StyleSetSize, NULL,ZEND_ACC_PUBLIC)
+        PHP_ME(php_wxStyledTextCtrl, StyleSetFaceName, NULL,ZEND_ACC_PUBLIC)
+        PHP_ME(php_wxStyledTextCtrl, StyleSetEOLFilled, NULL,ZEND_ACC_PUBLIC)
+        PHP_ME(php_wxStyledTextCtrl, StyleSetCase, NULL,ZEND_ACC_PUBLIC)
+        PHP_ME(php_wxStyledTextCtrl, StyleSetHotSpot, NULL,ZEND_ACC_PUBLIC)
+        PHP_ME(php_wxStyledTextCtrl, StyleSetVisible, NULL,ZEND_ACC_PUBLIC)
+        PHP_ME(php_wxStyledTextCtrl, SetWhitespaceForeground, NULL,ZEND_ACC_PUBLIC)
+        PHP_ME(php_wxStyledTextCtrl, SetWhitespaceBackground, NULL,ZEND_ACC_PUBLIC)
+        PHP_ME(php_wxStyledTextCtrl, GetProperty, NULL,ZEND_ACC_PUBLIC)
+        PHP_ME(php_wxStyledTextCtrl, GetPropertyInt, NULL,ZEND_ACC_PUBLIC)
+        PHP_ME(php_wxStyledTextCtrl, Colourise, NULL,ZEND_ACC_PUBLIC)
+        PHP_ME(php_wxStyledTextCtrl, SetStyleBits, NULL,ZEND_ACC_PUBLIC)
+        PHP_ME(php_wxStyledTextCtrl, GetStyleBits, NULL,ZEND_ACC_PUBLIC)
         PHP_ME(php_wxWindow, Show, NULL,ZEND_ACC_PUBLIC)
         PHP_ME(php_wxWindow, Create, NULL,ZEND_ACC_PUBLIC)
         PHP_ME(php_wxWindow, Destroy, NULL,ZEND_ACC_PUBLIC)
