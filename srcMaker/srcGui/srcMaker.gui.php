@@ -20,7 +20,7 @@
 			fwrite($hd,serialize($clo));
 			fclose($hd);
 
-			file_put_contents("_defIni.txt",print_r($clo,true));
+			file_put_contents("__classes.inc","<?php\n\nfunction GetClassesArray() { return ".var_export($clo,true).";\n}\n?>\n");
 		}
 		
 		function treeSelection($evn)
@@ -237,7 +237,21 @@
 		function myFrame()
 		{
 			parent::__construct( null ,null,"wxPhp Source Maker GUI, v0.1",wxDefaultPosition, new wxSize(600,400));
-			$this->SetIcon(new wxIcon("sample.xpm",wxBITMAP_TYPE_XPM));
+
+			$ico = new wxIcon();
+			// Embedded image code created by nwswEncodeImage.php
+			$pngData = base64_decode(
+				'iVBORw0KGgoAAAANSUhEUgAAACAAAAAgBAMAAACBVGfHAAAAFXRFWHRDcmVhdGlvbiBUaW1lAAfaCQsQDyY50qmrAAAAB3RJTUUH2gkLFhM7bS8H7QAAAAlwSFlzAAAK8AAACvABQqw0mAAAADBQTFRFAAAA////'.
+				'AADAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA9CeCGwAAAHBJREFUeNqdkIsNwCAIRHWDHhsc+w9ZoKWtn0TTCwZ9AQRK6VXR6ChVG80AIXAD7BYRUJqZc3NAcWaO2gDFA0CKGJD85Qbs'.
+				'gSBBFBkBIucFV3+6Ncsw/gT4liqO8AH8kWcTeK6t+1sjo/AbrFtfgF4n2twlKqV+cM8AAAAASUVORK5CYII='
+				);
+			$pngData = base64_decode(
+				'iVBORw0KGgoAAAANSUhEUgAAABAAAAAQBAMAAADt3eJSAAAAFXRFWHRDcmVhdGlvbiBUaW1lAAfaCQsWFhxgU6WzAAAAB3RJTUUH2gkLFhwMUgq+LQAAAAlwSFlzAAAP'.
+				'YQAAD2EBqD+naQAAADBQTFRF////AADAAAAA////////////////////////////////////////////////////Nh+EsAAAADZJREFUeNpjUIICBgUGMGBiUBQEAyEk'.
+				'hoCgABChMIA0IyOUISCIJgJRA+RCGRgGwhhwS2HOAACT3wkYUPdvYwAAAABJRU5ErkJggg=='
+				);
+			$ico->CopyFromBitmap(new wxBitmap(new wxImage(new wxMemoryInputStream($pngData,strlen($pngData)),wxBITMAP_TYPE_PNG)));
+			$this->SetIcon($ico);
 			
 			$sz 		= new wxBoxSizer(wxHORIZONTAL);
 			$sw 		= new wxSplitterWindow($this,-1,wxDefaultPosition,wxDefaultSize,wxSP_NO_XP_THEME);

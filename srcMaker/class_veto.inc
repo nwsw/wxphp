@@ -1,4 +1,11 @@
 <?php
-//unset($defIni['wxStyledTextCtrl']);
-//unset($defIni['wxPrinter']);
+unset($defIni['wxSizer']['Show']);
+unset($defIni['wxDC']);
+unset($defIni['wxDCBase']);
+unset($defIni['wxPen']);
+unset($defIni['wxPrinter']);
+unset($defIni['wxPrintDialogData']);
+unset($defIni['wxPrintout']);
+unset($defIni['wxSocketBase']);
+unset($defIni['wxSocketClient']);
 ?>

@@ -1170,8 +1170,6 @@
 	if(file_exists($fname_classes_out))
 	{
 		$defIni = unserialize(file_get_contents($fname_classes_out));
-		//blacklist
-		unset($defIni['wxSizer']['Show']);
 
 		include("class_additions.inc");
 		include("class_veto.inc");
@@ -2680,7 +2678,7 @@ PHP_METHOD(php_<?=$className?>, Connect);
 		fclose($hd);
 	}
 
-	file_put_contents("_defIni.txt",print_r($defIni,true));
+	file_put_contents("__defIni.txt",print_r($defIni,true));
 	//file_put_contents("_derivatives.txt",print_r($typeDerivationCheckCount,true).print_r($typeDerivationCheck,true));
 
 	die();

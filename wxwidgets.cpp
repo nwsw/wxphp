@@ -124,20 +124,8 @@ zend_class_entry *php_wxListEvent_entry;
 int le_wxListEvent;
 zend_class_entry *php_wxComboBox_entry;
 int le_wxComboBox;
-zend_class_entry *php_wxPrinter_entry;
-int le_wxPrinter;
-zend_class_entry *php_wxPrintout_entry;
-int le_wxPrintout;
-zend_class_entry *php_wxDC_entry;
-int le_wxDC;
-zend_class_entry *php_wxDCBase_entry;
-int le_wxDCBase;
-zend_class_entry *php_wxPrintDialogData_entry;
-int le_wxPrintDialogData;
 zend_class_entry *php_wxRect_entry;
 int le_wxRect;
-zend_class_entry *php_wxPen_entry;
-int le_wxPen;
 zend_class_entry *php_wxBrush_entry;
 int le_wxBrush;
 zend_class_entry *php_wxSplashScreen_entry;
@@ -162,10 +150,6 @@ zend_class_entry *php_wxIPV4address_entry;
 int le_wxIPV4address;
 zend_class_entry *php_wxSockAddress_entry;
 int le_wxSockAddress;
-zend_class_entry *php_wxSocketClient_entry;
-int le_wxSocketClient;
-zend_class_entry *php_wxSocketBase_entry;
-int le_wxSocketBase;
 zend_class_entry *php_wxCheckBox_entry;
 int le_wxCheckBox;
 zend_class_entry *php_wxDirDialog_entry;
@@ -652,48 +636,6 @@ PHP_FUNCTION(php_wxDynamicCast){
                                 add_property_resource(return_value, _wxResource, id_to_find);
                                 return;
                         }
-                        else if(!strcmp(_argStr0,"wxPrinter")){
-                                object_init_ex(return_value,php_wxPrinter_entry);
-                                wxPrinter* ret = wxDynamicCast(_ptrObj0,wxPrinter_php);
-                                long id_to_find = zend_list_insert(ret, le_wxPrinter);
-                                add_property_resource(return_value, _wxResource, id_to_find);
-                                return;
-                        }
-                        else if(!strcmp(_argStr0,"wxPrintout")){
-                                object_init_ex(return_value,php_wxPrintout_entry);
-                                wxPrintout* ret = wxDynamicCast(_ptrObj0,wxPrintout_php);
-                                long id_to_find = zend_list_insert(ret, le_wxPrintout);
-                                add_property_resource(return_value, _wxResource, id_to_find);
-                                return;
-                        }
-                        else if(!strcmp(_argStr0,"wxDC")){
-                                object_init_ex(return_value,php_wxDC_entry);
-                                wxDC* ret = wxDynamicCast(_ptrObj0,wxDC_php);
-                                long id_to_find = zend_list_insert(ret, le_wxDC);
-                                add_property_resource(return_value, _wxResource, id_to_find);
-                                return;
-                        }
-                        else if(!strcmp(_argStr0,"wxDCBase")){
-                                object_init_ex(return_value,php_wxDCBase_entry);
-                                wxDCBase* ret = wxDynamicCast(_ptrObj0,wxDCBase_php);
-                                long id_to_find = zend_list_insert(ret, le_wxDCBase);
-                                add_property_resource(return_value, _wxResource, id_to_find);
-                                return;
-                        }
-                        else if(!strcmp(_argStr0,"wxPrintDialogData")){
-                                object_init_ex(return_value,php_wxPrintDialogData_entry);
-                                wxPrintDialogData* ret = wxDynamicCast(_ptrObj0,wxPrintDialogData_php);
-                                long id_to_find = zend_list_insert(ret, le_wxPrintDialogData);
-                                add_property_resource(return_value, _wxResource, id_to_find);
-                                return;
-                        }
-                        else if(!strcmp(_argStr0,"wxPen")){
-                                object_init_ex(return_value,php_wxPen_entry);
-                                wxPen* ret = wxDynamicCast(_ptrObj0,wxPen_php);
-                                long id_to_find = zend_list_insert(ret, le_wxPen);
-                                add_property_resource(return_value, _wxResource, id_to_find);
-                                return;
-                        }
                         else if(!strcmp(_argStr0,"wxBrush")){
                                 object_init_ex(return_value,php_wxBrush_entry);
                                 wxBrush* ret = wxDynamicCast(_ptrObj0,wxBrush_php);
@@ -761,20 +703,6 @@ PHP_FUNCTION(php_wxDynamicCast){
                                 object_init_ex(return_value,php_wxSockAddress_entry);
                                 wxSockAddress* ret = wxDynamicCast(_ptrObj0,wxSockAddress_php);
                                 long id_to_find = zend_list_insert(ret, le_wxSockAddress);
-                                add_property_resource(return_value, _wxResource, id_to_find);
-                                return;
-                        }
-                        else if(!strcmp(_argStr0,"wxSocketClient")){
-                                object_init_ex(return_value,php_wxSocketClient_entry);
-                                wxSocketClient* ret = wxDynamicCast(_ptrObj0,wxSocketClient_php);
-                                long id_to_find = zend_list_insert(ret, le_wxSocketClient);
-                                add_property_resource(return_value, _wxResource, id_to_find);
-                                return;
-                        }
-                        else if(!strcmp(_argStr0,"wxSocketBase")){
-                                object_init_ex(return_value,php_wxSocketBase_entry);
-                                wxSocketBase* ret = wxDynamicCast(_ptrObj0,wxSocketBase_php);
-                                long id_to_find = zend_list_insert(ret, le_wxSocketBase);
                                 add_property_resource(return_value, _wxResource, id_to_find);
                                 return;
                         }
@@ -1201,33 +1129,9 @@ PHP_MINIT_FUNCTION(php_wxWidgets)
 	php_wxComboBox_entry = zend_register_internal_class(&cf TSRMLS_CC);
 	le_wxComboBox = zend_register_list_destructors_ex(php_wxComboBox_destruction_handler,NULL, le_wxComboBox_name ,module_number);
 
-	INIT_CLASS_ENTRY(cf, PHP_wxPrinter_NAME , php_wxPrinter_functions);
-	php_wxPrinter_entry = zend_register_internal_class(&cf TSRMLS_CC);
-	le_wxPrinter = zend_register_list_destructors_ex(php_wxPrinter_destruction_handler,NULL, le_wxPrinter_name ,module_number);
-
-	INIT_CLASS_ENTRY(cf, PHP_wxPrintout_NAME , php_wxPrintout_functions);
-	php_wxPrintout_entry = zend_register_internal_class(&cf TSRMLS_CC);
-	le_wxPrintout = zend_register_list_destructors_ex(php_wxPrintout_destruction_handler,NULL, le_wxPrintout_name ,module_number);
-
-	INIT_CLASS_ENTRY(cf, PHP_wxDC_NAME , php_wxDC_functions);
-	php_wxDC_entry = zend_register_internal_class(&cf TSRMLS_CC);
-	le_wxDC = zend_register_list_destructors_ex(php_wxDC_destruction_handler,NULL, le_wxDC_name ,module_number);
-
-	INIT_CLASS_ENTRY(cf, PHP_wxDCBase_NAME , php_wxDCBase_functions);
-	php_wxDCBase_entry = zend_register_internal_class(&cf TSRMLS_CC);
-	le_wxDCBase = zend_register_list_destructors_ex(php_wxDCBase_destruction_handler,NULL, le_wxDCBase_name ,module_number);
-
-	INIT_CLASS_ENTRY(cf, PHP_wxPrintDialogData_NAME , php_wxPrintDialogData_functions);
-	php_wxPrintDialogData_entry = zend_register_internal_class(&cf TSRMLS_CC);
-	le_wxPrintDialogData = zend_register_list_destructors_ex(php_wxPrintDialogData_destruction_handler,NULL, le_wxPrintDialogData_name ,module_number);
-
 	INIT_CLASS_ENTRY(cf, PHP_wxRect_NAME , php_wxRect_functions);
 	php_wxRect_entry = zend_register_internal_class(&cf TSRMLS_CC);
 	le_wxRect = zend_register_list_destructors_ex(php_wxRect_destruction_handler,NULL, le_wxRect_name ,module_number);
-
-	INIT_CLASS_ENTRY(cf, PHP_wxPen_NAME , php_wxPen_functions);
-	php_wxPen_entry = zend_register_internal_class(&cf TSRMLS_CC);
-	le_wxPen = zend_register_list_destructors_ex(php_wxPen_destruction_handler,NULL, le_wxPen_name ,module_number);
 
 	INIT_CLASS_ENTRY(cf, PHP_wxBrush_NAME , php_wxBrush_functions);
 	php_wxBrush_entry = zend_register_internal_class(&cf TSRMLS_CC);
@@ -1276,14 +1180,6 @@ PHP_MINIT_FUNCTION(php_wxWidgets)
 	INIT_CLASS_ENTRY(cf, PHP_wxSockAddress_NAME , php_wxSockAddress_functions);
 	php_wxSockAddress_entry = zend_register_internal_class(&cf TSRMLS_CC);
 	le_wxSockAddress = zend_register_list_destructors_ex(php_wxSockAddress_destruction_handler,NULL, le_wxSockAddress_name ,module_number);
-
-	INIT_CLASS_ENTRY(cf, PHP_wxSocketClient_NAME , php_wxSocketClient_functions);
-	php_wxSocketClient_entry = zend_register_internal_class(&cf TSRMLS_CC);
-	le_wxSocketClient = zend_register_list_destructors_ex(php_wxSocketClient_destruction_handler,NULL, le_wxSocketClient_name ,module_number);
-
-	INIT_CLASS_ENTRY(cf, PHP_wxSocketBase_NAME , php_wxSocketBase_functions);
-	php_wxSocketBase_entry = zend_register_internal_class(&cf TSRMLS_CC);
-	le_wxSocketBase = zend_register_list_destructors_ex(php_wxSocketBase_destruction_handler,NULL, le_wxSocketBase_name ,module_number);
 
 	INIT_CLASS_ENTRY(cf, PHP_wxCheckBox_NAME , php_wxCheckBox_functions);
 	php_wxCheckBox_entry = zend_register_internal_class(&cf TSRMLS_CC);
