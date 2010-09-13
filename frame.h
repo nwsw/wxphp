@@ -69,6 +69,7 @@ static function_entry php_wxFrame_functions[] = {
         PHP_ME(php_wxWindowBase, FindWindow, NULL,ZEND_ACC_PUBLIC)
         PHP_ME(php_wxFrameBase, SetMenuBar, NULL,ZEND_ACC_PUBLIC)
         PHP_ME(php_wxTopLevelWindowBase, SetIcon, NULL,ZEND_ACC_PUBLIC)
+        PHP_ME(php_wxTopLevelWindowBase, SetIcons, NULL,ZEND_ACC_PUBLIC)
 	{ NULL, NULL, NULL }
 };
 extern zend_class_entry *php_wxEvent_entry;
@@ -709,6 +710,8 @@ static function_entry php_wxImage_functions[] = {
         PHP_ME(php_wxImage, Rotate, NULL,ZEND_ACC_PUBLIC)
         PHP_ME(php_wxImage, Rotate90, NULL,ZEND_ACC_PUBLIC)
         PHP_ME(php_wxImage, Mirror, NULL,ZEND_ACC_PUBLIC)
+        PHP_ME(php_wxImage, GetImageCount, NULL,ZEND_ACC_PUBLIC)
+        PHP_ME(php_wxImage, LoadFile, NULL,ZEND_ACC_PUBLIC)
 	{ NULL, NULL, NULL }
 };
 extern zend_class_entry *php_wxMenuItem_entry;
@@ -1194,6 +1197,7 @@ extern int le_wxTopLevelWindowBase;
 
 static function_entry php_wxTopLevelWindowBase_functions[] = {
         PHP_ME(php_wxTopLevelWindowBase, SetIcon, NULL,ZEND_ACC_PUBLIC)
+        PHP_ME(php_wxTopLevelWindowBase, SetIcons, NULL,ZEND_ACC_PUBLIC)
 	{ NULL, NULL, NULL }
 };
 extern zend_class_entry *php_wxSplitterWindow_entry;
@@ -2305,6 +2309,7 @@ static function_entry php_wxFileDialog_functions[] = {
         PHP_ME(php_wxDialog, EndModal, NULL,ZEND_ACC_PUBLIC)
         PHP_ME(php_wxDialog, IsModal, NULL,ZEND_ACC_PUBLIC)
         PHP_ME(php_wxTopLevelWindowBase, SetIcon, NULL,ZEND_ACC_PUBLIC)
+        PHP_ME(php_wxTopLevelWindowBase, SetIcons, NULL,ZEND_ACC_PUBLIC)
         PHP_ME(php_wxWindow, Create, NULL,ZEND_ACC_PUBLIC)
         PHP_ME(php_wxWindow, Destroy, NULL,ZEND_ACC_PUBLIC)
         PHP_ME(php_wxWindow, Raise, NULL,ZEND_ACC_PUBLIC)
@@ -2372,6 +2377,7 @@ static function_entry php_wxDialog_functions[] = {
         PHP_ME(php_wxDialog, EndModal, NULL,ZEND_ACC_PUBLIC)
         PHP_ME(php_wxDialog, IsModal, NULL,ZEND_ACC_PUBLIC)
         PHP_ME(php_wxTopLevelWindowBase, SetIcon, NULL,ZEND_ACC_PUBLIC)
+        PHP_ME(php_wxTopLevelWindowBase, SetIcons, NULL,ZEND_ACC_PUBLIC)
         PHP_ME(php_wxWindow, Create, NULL,ZEND_ACC_PUBLIC)
         PHP_ME(php_wxWindow, Destroy, NULL,ZEND_ACC_PUBLIC)
         PHP_ME(php_wxWindow, Raise, NULL,ZEND_ACC_PUBLIC)
@@ -2439,6 +2445,7 @@ static function_entry php_wxMessageDialog_functions[] = {
         PHP_ME(php_wxDialog, EndModal, NULL,ZEND_ACC_PUBLIC)
         PHP_ME(php_wxDialog, IsModal, NULL,ZEND_ACC_PUBLIC)
         PHP_ME(php_wxTopLevelWindowBase, SetIcon, NULL,ZEND_ACC_PUBLIC)
+        PHP_ME(php_wxTopLevelWindowBase, SetIcons, NULL,ZEND_ACC_PUBLIC)
         PHP_ME(php_wxWindow, Create, NULL,ZEND_ACC_PUBLIC)
         PHP_ME(php_wxWindow, Destroy, NULL,ZEND_ACC_PUBLIC)
         PHP_ME(php_wxWindow, Raise, NULL,ZEND_ACC_PUBLIC)
@@ -2975,6 +2982,7 @@ static function_entry php_wxSplashScreen_functions[] = {
         PHP_ME(php_wxWindowBase, FindWindow, NULL,ZEND_ACC_PUBLIC)
         PHP_ME(php_wxFrameBase, SetMenuBar, NULL,ZEND_ACC_PUBLIC)
         PHP_ME(php_wxTopLevelWindowBase, SetIcon, NULL,ZEND_ACC_PUBLIC)
+        PHP_ME(php_wxTopLevelWindowBase, SetIcons, NULL,ZEND_ACC_PUBLIC)
 	{ NULL, NULL, NULL }
 };
 extern zend_class_entry *php_wxCalendarCtrl_entry;
@@ -3428,6 +3436,7 @@ static function_entry php_wxDirDialog_functions[] = {
         PHP_ME(php_wxDialog, EndModal, NULL,ZEND_ACC_PUBLIC)
         PHP_ME(php_wxDialog, IsModal, NULL,ZEND_ACC_PUBLIC)
         PHP_ME(php_wxTopLevelWindowBase, SetIcon, NULL,ZEND_ACC_PUBLIC)
+        PHP_ME(php_wxTopLevelWindowBase, SetIcons, NULL,ZEND_ACC_PUBLIC)
         PHP_ME(php_wxWindow, Create, NULL,ZEND_ACC_PUBLIC)
         PHP_ME(php_wxWindow, Destroy, NULL,ZEND_ACC_PUBLIC)
         PHP_ME(php_wxWindow, Raise, NULL,ZEND_ACC_PUBLIC)
@@ -4307,6 +4316,37 @@ static function_entry php_wxIdleEvent_functions[] = {
         PHP_ME(php_wxEvent, ShouldPropagate, NULL,ZEND_ACC_PUBLIC)
         PHP_ME(php_wxEvent, StopPropagation, NULL,ZEND_ACC_PUBLIC)
         PHP_ME(php_wxEvent, ResumePropagation, NULL,ZEND_ACC_PUBLIC)
+	{ NULL, NULL, NULL }
+};
+extern zend_class_entry *php_wxIconBundle_entry;
+void php_wxIconBundle_destruction_handler(zend_rsrc_list_entry * TSRMLS_DC);
+
+#define PHP_wxIconBundle_NAME "wxIconBundle"
+#define le_wxIconBundle_name  "native wxIconBundle"
+
+class wxIconBundle_php : public wxIconBundle{
+	public:
+	wxIconBundle_php():wxIconBundle()
+	{
+	}
+	wxIconBundle_php(const wxString& arg0 , long int arg1):wxIconBundle(arg0 , arg1)
+	{
+	}
+	wxIconBundle_php(const wxIcon& arg0):wxIconBundle(arg0)
+	{
+	}
+	zval *evnArray;
+	void onEvent(wxEvent& evnt);
+	void ***tsrm_ls;
+	zval* phpObj;
+};
+
+
+extern int le_wxIconBundle;
+
+static function_entry php_wxIconBundle_functions[] = {
+        PHP_ME(php_wxIconBundle, __construct, NULL,ZEND_ACC_PUBLIC|ZEND_ACC_CTOR)
+        PHP_ME(php_wxIconBundle, AddIcon, NULL,ZEND_ACC_PUBLIC)
 	{ NULL, NULL, NULL }
 };
 extern zend_class_entry *php_wxStringInputStream_entry;

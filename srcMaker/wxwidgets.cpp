@@ -184,6 +184,8 @@ zend_class_entry *php_wxScrolledWindow_entry;
 int le_wxScrolledWindow;
 zend_class_entry *php_wxIdleEvent_entry;
 int le_wxIdleEvent;
+zend_class_entry *php_wxIconBundle_entry;
+int le_wxIconBundle;
 zend_class_entry *php_wxStringInputStream_entry;
 int le_wxStringInputStream;
 zend_class_entry *php_wxMemoryInputStream_entry;
@@ -818,6 +820,13 @@ PHP_FUNCTION(php_wxDynamicCast){
                                 add_property_resource(return_value, _wxResource, id_to_find);
                                 return;
                         }
+                        else if(!strcmp(_argStr0,"wxIconBundle")){
+                                object_init_ex(return_value,php_wxIconBundle_entry);
+                                wxIconBundle* ret = wxDynamicCast(_ptrObj0,wxIconBundle_php);
+                                long id_to_find = zend_list_insert(ret, le_wxIconBundle);
+                                add_property_resource(return_value, _wxResource, id_to_find);
+                                return;
+                        }
                         else if(!strcmp(_argStr0,"wxStringInputStream")){
                                 object_init_ex(return_value,php_wxStringInputStream_entry);
                                 wxStringInputStream* ret = wxDynamicCast(_ptrObj0,wxStringInputStream_php);
@@ -1248,6 +1257,10 @@ PHP_MINIT_FUNCTION(php_wxWidgets)
 	INIT_CLASS_ENTRY(cf, PHP_wxIdleEvent_NAME , php_wxIdleEvent_functions);
 	php_wxIdleEvent_entry = zend_register_internal_class(&cf TSRMLS_CC);
 	le_wxIdleEvent = zend_register_list_destructors_ex(php_wxIdleEvent_destruction_handler,NULL, le_wxIdleEvent_name ,module_number);
+
+	INIT_CLASS_ENTRY(cf, PHP_wxIconBundle_NAME , php_wxIconBundle_functions);
+	php_wxIconBundle_entry = zend_register_internal_class(&cf TSRMLS_CC);
+	le_wxIconBundle = zend_register_list_destructors_ex(php_wxIconBundle_destruction_handler,NULL, le_wxIconBundle_name ,module_number);
 
 	INIT_CLASS_ENTRY(cf, PHP_wxStringInputStream_NAME , php_wxStringInputStream_functions);
 	php_wxStringInputStream_entry = zend_register_internal_class(&cf TSRMLS_CC);

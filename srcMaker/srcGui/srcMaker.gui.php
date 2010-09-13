@@ -245,11 +245,6 @@
 				'AADAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA9CeCGwAAAHBJREFUeNqdkIsNwCAIRHWDHhsc+w9ZoKWtn0TTCwZ9AQRK6VXR6ChVG80AIXAD7BYRUJqZc3NAcWaO2gDFA0CKGJD85Qbs'.
 				'gSBBFBkBIucFV3+6Ncsw/gT4liqO8AH8kWcTeK6t+1sjo/AbrFtfgF4n2twlKqV+cM8AAAAASUVORK5CYII='
 				);
-			$pngData = base64_decode(
-				'iVBORw0KGgoAAAANSUhEUgAAABAAAAAQBAMAAADt3eJSAAAAFXRFWHRDcmVhdGlvbiBUaW1lAAfaCQsWFhxgU6WzAAAAB3RJTUUH2gkLFhwMUgq+LQAAAAlwSFlzAAAP'.
-				'YQAAD2EBqD+naQAAADBQTFRF////AADAAAAA////////////////////////////////////////////////////Nh+EsAAAADZJREFUeNpjUIICBgUGMGBiUBQEAyEk'.
-				'hoCgABChMIA0IyOUISCIJgJRA+RCGRgGwhhwS2HOAACT3wkYUPdvYwAAAABJRU5ErkJggg=='
-				);
 			$ico->CopyFromBitmap(new wxBitmap(new wxImage(new wxMemoryInputStream($pngData,strlen($pngData)),wxBITMAP_TYPE_PNG)));
 			$this->SetIcon($ico);
 			
@@ -325,8 +320,6 @@
 	{
 		function OnInit()
 		{
-			wxInitAllImageHandlers();
-
 			$zs = new myFrame();
 			$zs->Show();
 			
@@ -343,6 +336,7 @@
 		}
 	}
 
+	wxInitAllImageHandlers();
 	$xt = new myApp();
 	wxApp::SetInstance($xt);
 	wxEntry();
