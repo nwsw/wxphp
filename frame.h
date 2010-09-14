@@ -4349,6 +4349,42 @@ static function_entry php_wxIconBundle_functions[] = {
         PHP_ME(php_wxIconBundle, AddIcon, NULL,ZEND_ACC_PUBLIC)
 	{ NULL, NULL, NULL }
 };
+extern zend_class_entry *php_wxCloseEvent_entry;
+void php_wxCloseEvent_destruction_handler(zend_rsrc_list_entry * TSRMLS_DC);
+
+#define PHP_wxCloseEvent_NAME "wxCloseEvent"
+#define le_wxCloseEvent_name  "native wxCloseEvent"
+
+class wxCloseEvent_php : public wxCloseEvent{
+	public:
+	zval *evnArray;
+	void onEvent(wxEvent& evnt);
+	void ***tsrm_ls;
+	zval* phpObj;
+};
+
+
+extern int le_wxCloseEvent;
+
+static function_entry php_wxCloseEvent_functions[] = {
+        PHP_ME(php_wxCloseEvent, Veto, NULL,ZEND_ACC_PUBLIC)
+        PHP_ME(php_wxCloseEvent, CanVeto, NULL,ZEND_ACC_PUBLIC)
+        PHP_ME(php_wxEvent, GetId, NULL,ZEND_ACC_PUBLIC)
+        PHP_ME(php_wxEvent, SetEventType, NULL,ZEND_ACC_PUBLIC)
+        PHP_ME(php_wxEvent, GetEventType, NULL,ZEND_ACC_PUBLIC)
+        PHP_ME(php_wxEvent, GetEventObject, NULL,ZEND_ACC_PUBLIC)
+        PHP_ME(php_wxEvent, SetEventObject, NULL,ZEND_ACC_PUBLIC)
+        PHP_ME(php_wxEvent, GetTimestamp, NULL,ZEND_ACC_PUBLIC)
+        PHP_ME(php_wxEvent, SetTimestamp, NULL,ZEND_ACC_PUBLIC)
+        PHP_ME(php_wxEvent, SetId, NULL,ZEND_ACC_PUBLIC)
+        PHP_ME(php_wxEvent, Skip, NULL,ZEND_ACC_PUBLIC)
+        PHP_ME(php_wxEvent, GetSkipped, NULL,ZEND_ACC_PUBLIC)
+        PHP_ME(php_wxEvent, IsCommandEvent, NULL,ZEND_ACC_PUBLIC)
+        PHP_ME(php_wxEvent, ShouldPropagate, NULL,ZEND_ACC_PUBLIC)
+        PHP_ME(php_wxEvent, StopPropagation, NULL,ZEND_ACC_PUBLIC)
+        PHP_ME(php_wxEvent, ResumePropagation, NULL,ZEND_ACC_PUBLIC)
+	{ NULL, NULL, NULL }
+};
 extern zend_class_entry *php_wxStringInputStream_entry;
 void php_wxStringInputStream_destruction_handler(zend_rsrc_list_entry * TSRMLS_DC);
 

@@ -186,6 +186,8 @@ zend_class_entry *php_wxIdleEvent_entry;
 int le_wxIdleEvent;
 zend_class_entry *php_wxIconBundle_entry;
 int le_wxIconBundle;
+zend_class_entry *php_wxCloseEvent_entry;
+int le_wxCloseEvent;
 zend_class_entry *php_wxStringInputStream_entry;
 int le_wxStringInputStream;
 zend_class_entry *php_wxMemoryInputStream_entry;
@@ -827,6 +829,13 @@ PHP_FUNCTION(php_wxDynamicCast){
                                 add_property_resource(return_value, _wxResource, id_to_find);
                                 return;
                         }
+                        else if(!strcmp(_argStr0,"wxCloseEvent")){
+                                object_init_ex(return_value,php_wxCloseEvent_entry);
+                                wxCloseEvent* ret = wxDynamicCast(_ptrObj0,wxCloseEvent_php);
+                                long id_to_find = zend_list_insert(ret, le_wxCloseEvent);
+                                add_property_resource(return_value, _wxResource, id_to_find);
+                                return;
+                        }
                         else if(!strcmp(_argStr0,"wxStringInputStream")){
                                 object_init_ex(return_value,php_wxStringInputStream_entry);
                                 wxStringInputStream* ret = wxDynamicCast(_ptrObj0,wxStringInputStream_php);
@@ -1261,6 +1270,10 @@ PHP_MINIT_FUNCTION(php_wxWidgets)
 	INIT_CLASS_ENTRY(cf, PHP_wxIconBundle_NAME , php_wxIconBundle_functions);
 	php_wxIconBundle_entry = zend_register_internal_class(&cf TSRMLS_CC);
 	le_wxIconBundle = zend_register_list_destructors_ex(php_wxIconBundle_destruction_handler,NULL, le_wxIconBundle_name ,module_number);
+
+	INIT_CLASS_ENTRY(cf, PHP_wxCloseEvent_NAME , php_wxCloseEvent_functions);
+	php_wxCloseEvent_entry = zend_register_internal_class(&cf TSRMLS_CC);
+	le_wxCloseEvent = zend_register_list_destructors_ex(php_wxCloseEvent_destruction_handler,NULL, le_wxCloseEvent_name ,module_number);
 
 	INIT_CLASS_ENTRY(cf, PHP_wxStringInputStream_NAME , php_wxStringInputStream_functions);
 	php_wxStringInputStream_entry = zend_register_internal_class(&cf TSRMLS_CC);
@@ -3038,6 +3051,7 @@ PHP_MINIT_FUNCTION(php_wxWidgets)
 	REGISTER_LONG_CONSTANT("wxTE_CAPITALIZE",	wxTE_CAPITALIZE	, CONST_CS |CONST_PERSISTENT);
 	REGISTER_LONG_CONSTANT("wxOK",	wxOK	, CONST_CS |CONST_PERSISTENT);
 	REGISTER_LONG_CONSTANT("wxCANCEL",	wxCANCEL	, CONST_CS |CONST_PERSISTENT);
+	REGISTER_LONG_CONSTANT("wxYES_NO",	wxYES_NO	, CONST_CS |CONST_PERSISTENT);
 	REGISTER_LONG_CONSTANT("wxYES_DEFAULT",	wxYES_DEFAULT	, CONST_CS |CONST_PERSISTENT);
 	REGISTER_LONG_CONSTANT("wxNO_DEFAULT",	wxNO_DEFAULT	, CONST_CS |CONST_PERSISTENT);
 	REGISTER_LONG_CONSTANT("wxICON_EXCLAMATION",	wxICON_EXCLAMATION	, CONST_CS |CONST_PERSISTENT);

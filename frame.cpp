@@ -26155,6 +26155,12 @@ void wxEvtHandler_php::onEvent(wxEvent& evnt)
 		object_init_ex(arg[0],php_wxIdleEvent_entry);
 		add_property_resource(arg[0], _wxResource, zend_list_insert(&evnt, le_wxIdleEvent));
 	}
+	
+	else if(!tcscmp(evnt.GetClassInfo()->GetClassName(),wxT("wxCloseEvent")))
+	{
+		object_init_ex(arg[0],php_wxCloseEvent_entry);
+		add_property_resource(arg[0], _wxResource, zend_list_insert(&evnt, le_wxCloseEvent));
+	}
 
         char* wxname;
         zval dummy;
@@ -37167,6 +37173,84 @@ PHP_METHOD(php_wxIconBundle, AddIcon)
 					break;
 			}
 			
+		}
+	}
+}
+void php_wxCloseEvent_destruction_handler(zend_rsrc_list_entry *rsrc TSRMLS_DC) 
+{
+	}			
+PHP_METHOD(php_wxCloseEvent, Veto)
+{
+	zval **tmp;
+	int rsrc_type;
+	int id_to_find;
+	char _wxResource[] = "wxResource";
+	int valid = 1;
+	void *_this;
+	
+	if (zend_hash_find(Z_OBJPROP_P(getThis()), _wxResource, sizeof(_wxResource),  (void **)&tmp) == FAILURE) 
+	{
+		return;
+	}
+	id_to_find = Z_RESVAL_P(*tmp);
+	_this = zend_list_find(id_to_find, &rsrc_type);
+	
+	bool _argBool0;
+	valid=1;
+	if (zend_parse_parameters_ex(ZEND_PARSE_PARAMS_QUIET, ZEND_NUM_ARGS() TSRMLS_CC, "|b!", &_argBool0 ) == SUCCESS)
+	{
+		
+		if(valid)
+		{
+			int gr = ZEND_NUM_ARGS(); 
+			switch(gr)
+			{
+				case 1:
+					 ((wxCloseEvent_php*)_this)->Veto(_argBool0);
+					break;
+				case 0:
+					 ((wxCloseEvent_php*)_this)->Veto();
+					break;
+				default:
+					break;
+			}
+			
+		}
+	}
+}
+PHP_METHOD(php_wxCloseEvent, CanVeto)
+{
+	zval **tmp;
+	int rsrc_type;
+	int id_to_find;
+	char _wxResource[] = "wxResource";
+	int valid = 1;
+	void *_this;
+	
+	if (zend_hash_find(Z_OBJPROP_P(getThis()), _wxResource, sizeof(_wxResource),  (void **)&tmp) == FAILURE) 
+	{
+		return;
+	}
+	id_to_find = Z_RESVAL_P(*tmp);
+	_this = zend_list_find(id_to_find, &rsrc_type);
+	
+	valid=1;
+	if (ZEND_NUM_ARGS()==0)
+	{
+		
+		if(valid)
+		{
+			bool ret0;
+			int gr = ZEND_NUM_ARGS(); 
+			switch(gr)
+			{
+				case 0:
+					ret0 =  ((wxCloseEvent_php*)_this)->CanVeto();
+					break;
+				default:
+					break;
+			}
+			RETURN_BOOL(ret0)			
 		}
 	}
 }

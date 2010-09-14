@@ -184,6 +184,7 @@
 				,"wxTE_CAPITALIZE"=>1
 				,"wxOK"=>1
 				,"wxCANCEL"=>1
+				,"wxYES_NO"=>1
 				,"wxYES_DEFAULT"=>1
 				,"wxNO_DEFAULT"=>1
 				,"wxICON_EXCLAMATION"=>1
