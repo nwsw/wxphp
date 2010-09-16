@@ -26132,6 +26132,12 @@ void wxEvtHandler_php::onEvent(wxEvent& evnt)
 		add_property_resource(arg[0], _wxResource, zend_list_insert(&evnt, le_wxCalendarEvent));
 	}
 	
+	else if(!tcscmp(evnt.GetClassInfo()->GetClassName(),wxT("wxSplitterEvent")))
+	{
+		object_init_ex(arg[0],php_wxSplitterEvent_entry);
+		add_property_resource(arg[0], _wxResource, zend_list_insert(&evnt, le_wxSplitterEvent));
+	}
+	
 	else if(!tcscmp(evnt.GetClassInfo()->GetClassName(),wxT("wxSpinEvent")))
 	{
 		object_init_ex(arg[0],php_wxSpinEvent_entry);
@@ -37251,6 +37257,81 @@ PHP_METHOD(php_wxCloseEvent, CanVeto)
 					break;
 			}
 			RETURN_BOOL(ret0)			
+		}
+	}
+}
+void php_wxSplitterEvent_destruction_handler(zend_rsrc_list_entry *rsrc TSRMLS_DC) 
+{
+	}			
+PHP_METHOD(php_wxSplitterEvent, SetSashPosition)
+{
+	zval **tmp;
+	int rsrc_type;
+	int id_to_find;
+	char _wxResource[] = "wxResource";
+	int valid = 1;
+	void *_this;
+	
+	if (zend_hash_find(Z_OBJPROP_P(getThis()), _wxResource, sizeof(_wxResource),  (void **)&tmp) == FAILURE) 
+	{
+		return;
+	}
+	id_to_find = Z_RESVAL_P(*tmp);
+	_this = zend_list_find(id_to_find, &rsrc_type);
+	
+	long _argLong0;
+	valid=1;
+	if (zend_parse_parameters_ex(ZEND_PARSE_PARAMS_QUIET, ZEND_NUM_ARGS() TSRMLS_CC, "l!", &_argLong0 ) == SUCCESS)
+	{
+		
+		if(valid)
+		{
+			int gr = ZEND_NUM_ARGS(); 
+			switch(gr)
+			{
+				case 1:
+					 ((wxSplitterEvent_php*)_this)->SetSashPosition((int)_argLong0);
+					break;
+				default:
+					break;
+			}
+			
+		}
+	}
+}
+PHP_METHOD(php_wxSplitterEvent, GetSashPosition)
+{
+	zval **tmp;
+	int rsrc_type;
+	int id_to_find;
+	char _wxResource[] = "wxResource";
+	int valid = 1;
+	void *_this;
+	
+	if (zend_hash_find(Z_OBJPROP_P(getThis()), _wxResource, sizeof(_wxResource),  (void **)&tmp) == FAILURE) 
+	{
+		return;
+	}
+	id_to_find = Z_RESVAL_P(*tmp);
+	_this = zend_list_find(id_to_find, &rsrc_type);
+	
+	valid=1;
+	if (ZEND_NUM_ARGS()==0)
+	{
+		
+		if(valid)
+		{
+			int ret0;
+			int gr = ZEND_NUM_ARGS(); 
+			switch(gr)
+			{
+				case 0:
+					ret0 =  ((wxSplitterEvent_php*)_this)->GetSashPosition();
+					break;
+				default:
+					break;
+			}
+			RETURN_LONG((long)ret0)			
 		}
 	}
 }

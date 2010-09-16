@@ -4385,6 +4385,51 @@ static function_entry php_wxCloseEvent_functions[] = {
         PHP_ME(php_wxEvent, ResumePropagation, NULL,ZEND_ACC_PUBLIC)
 	{ NULL, NULL, NULL }
 };
+extern zend_class_entry *php_wxSplitterEvent_entry;
+void php_wxSplitterEvent_destruction_handler(zend_rsrc_list_entry * TSRMLS_DC);
+
+#define PHP_wxSplitterEvent_NAME "wxSplitterEvent"
+#define le_wxSplitterEvent_name  "native wxSplitterEvent"
+
+class wxSplitterEvent_php : public wxSplitterEvent{
+	public:
+	zval *evnArray;
+	void onEvent(wxEvent& evnt);
+	void ***tsrm_ls;
+	zval* phpObj;
+};
+
+
+extern int le_wxSplitterEvent;
+
+static function_entry php_wxSplitterEvent_functions[] = {
+        PHP_ME(php_wxSplitterEvent, SetSashPosition, NULL,ZEND_ACC_PUBLIC)
+        PHP_ME(php_wxSplitterEvent, GetSashPosition, NULL,ZEND_ACC_PUBLIC)
+        PHP_ME(php_wxCommandEvent, GetSelection, NULL,ZEND_ACC_PUBLIC)
+        PHP_ME(php_wxCommandEvent, SetString, NULL,ZEND_ACC_PUBLIC)
+        PHP_ME(php_wxCommandEvent, GetString, NULL,ZEND_ACC_PUBLIC)
+        PHP_ME(php_wxCommandEvent, IsChecked, NULL,ZEND_ACC_PUBLIC)
+        PHP_ME(php_wxCommandEvent, IsSelection, NULL,ZEND_ACC_PUBLIC)
+        PHP_ME(php_wxCommandEvent, SetExtraLong, NULL,ZEND_ACC_PUBLIC)
+        PHP_ME(php_wxCommandEvent, GetExtraLong, NULL,ZEND_ACC_PUBLIC)
+        PHP_ME(php_wxCommandEvent, SetInt, NULL,ZEND_ACC_PUBLIC)
+        PHP_ME(php_wxCommandEvent, GetInt, NULL,ZEND_ACC_PUBLIC)
+        PHP_ME(php_wxEvent, GetId, NULL,ZEND_ACC_PUBLIC)
+        PHP_ME(php_wxEvent, SetEventType, NULL,ZEND_ACC_PUBLIC)
+        PHP_ME(php_wxEvent, GetEventType, NULL,ZEND_ACC_PUBLIC)
+        PHP_ME(php_wxEvent, GetEventObject, NULL,ZEND_ACC_PUBLIC)
+        PHP_ME(php_wxEvent, SetEventObject, NULL,ZEND_ACC_PUBLIC)
+        PHP_ME(php_wxEvent, GetTimestamp, NULL,ZEND_ACC_PUBLIC)
+        PHP_ME(php_wxEvent, SetTimestamp, NULL,ZEND_ACC_PUBLIC)
+        PHP_ME(php_wxEvent, SetId, NULL,ZEND_ACC_PUBLIC)
+        PHP_ME(php_wxEvent, Skip, NULL,ZEND_ACC_PUBLIC)
+        PHP_ME(php_wxEvent, GetSkipped, NULL,ZEND_ACC_PUBLIC)
+        PHP_ME(php_wxEvent, IsCommandEvent, NULL,ZEND_ACC_PUBLIC)
+        PHP_ME(php_wxEvent, ShouldPropagate, NULL,ZEND_ACC_PUBLIC)
+        PHP_ME(php_wxEvent, StopPropagation, NULL,ZEND_ACC_PUBLIC)
+        PHP_ME(php_wxEvent, ResumePropagation, NULL,ZEND_ACC_PUBLIC)
+	{ NULL, NULL, NULL }
+};
 extern zend_class_entry *php_wxStringInputStream_entry;
 void php_wxStringInputStream_destruction_handler(zend_rsrc_list_entry * TSRMLS_DC);
 

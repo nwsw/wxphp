@@ -819,6 +819,8 @@ PHP_METHOD(php_wxIconBundle, __construct);
 PHP_METHOD(php_wxIconBundle, AddIcon);
 PHP_METHOD(php_wxCloseEvent, Veto);
 PHP_METHOD(php_wxCloseEvent, CanVeto);
+PHP_METHOD(php_wxSplitterEvent, SetSashPosition);
+PHP_METHOD(php_wxSplitterEvent, GetSashPosition);
 PHP_METHOD(php_wxStringInputStream, __construct);
 PHP_METHOD(php_wxMemoryInputStream, __construct);
 PHP_METHOD(php_wxSpinEvent, GetPosition);
