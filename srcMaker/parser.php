@@ -209,6 +209,14 @@
 				,"wxHSCROLL"=>1
 				,"wxALWAYS_SHOW_SB"=>1
 				,"wxCLIP_CHILDREN"=>1
+				,"wxCAPTION"=>1
+				,"wxSYSTEM_MENU"=>1
+				,"wxMINIMIZE_BOX"=>1
+				,"wxMAXIMIZE_BOX"=>1
+				,"wxCLOSE_BOX"=>1
+				,"wxRESIZE_BORDER"=>1
+				,"wxDEFAULT_FRAME_STYLE"=>1
+				,"wxDEFAULT_DIALOG_STYLE"=>1
 				,"wxFULL_REPAINT_ON_RESIZE"=>1
 				,"wxLB_SINGLE"=>1
 				,"wxLB_MULTIPLE"=>1
