@@ -190,6 +190,10 @@ zend_class_entry *php_wxCloseEvent_entry;
 int le_wxCloseEvent;
 zend_class_entry *php_wxSplitterEvent_entry;
 int le_wxSplitterEvent;
+zend_class_entry *php_wxStyledTextEvent_entry;
+int le_wxStyledTextEvent;
+zend_class_entry *php_wxUpdateUIEvent_entry;
+int le_wxUpdateUIEvent;
 zend_class_entry *php_wxStringInputStream_entry;
 int le_wxStringInputStream;
 zend_class_entry *php_wxMemoryInputStream_entry;
@@ -845,6 +849,20 @@ PHP_FUNCTION(php_wxDynamicCast){
                                 add_property_resource(return_value, _wxResource, id_to_find);
                                 return;
                         }
+                        else if(!strcmp(_argStr0,"wxStyledTextEvent")){
+                                object_init_ex(return_value,php_wxStyledTextEvent_entry);
+                                wxStyledTextEvent* ret = wxDynamicCast(_ptrObj0,wxStyledTextEvent_php);
+                                long id_to_find = zend_list_insert(ret, le_wxStyledTextEvent);
+                                add_property_resource(return_value, _wxResource, id_to_find);
+                                return;
+                        }
+                        else if(!strcmp(_argStr0,"wxUpdateUIEvent")){
+                                object_init_ex(return_value,php_wxUpdateUIEvent_entry);
+                                wxUpdateUIEvent* ret = wxDynamicCast(_ptrObj0,wxUpdateUIEvent_php);
+                                long id_to_find = zend_list_insert(ret, le_wxUpdateUIEvent);
+                                add_property_resource(return_value, _wxResource, id_to_find);
+                                return;
+                        }
                         else if(!strcmp(_argStr0,"wxStringInputStream")){
                                 object_init_ex(return_value,php_wxStringInputStream_entry);
                                 wxStringInputStream* ret = wxDynamicCast(_ptrObj0,wxStringInputStream_php);
@@ -1287,6 +1305,14 @@ PHP_MINIT_FUNCTION(php_wxWidgets)
 	INIT_CLASS_ENTRY(cf, PHP_wxSplitterEvent_NAME , php_wxSplitterEvent_functions);
 	php_wxSplitterEvent_entry = zend_register_internal_class(&cf TSRMLS_CC);
 	le_wxSplitterEvent = zend_register_list_destructors_ex(php_wxSplitterEvent_destruction_handler,NULL, le_wxSplitterEvent_name ,module_number);
+
+	INIT_CLASS_ENTRY(cf, PHP_wxStyledTextEvent_NAME , php_wxStyledTextEvent_functions);
+	php_wxStyledTextEvent_entry = zend_register_internal_class(&cf TSRMLS_CC);
+	le_wxStyledTextEvent = zend_register_list_destructors_ex(php_wxStyledTextEvent_destruction_handler,NULL, le_wxStyledTextEvent_name ,module_number);
+
+	INIT_CLASS_ENTRY(cf, PHP_wxUpdateUIEvent_NAME , php_wxUpdateUIEvent_functions);
+	php_wxUpdateUIEvent_entry = zend_register_internal_class(&cf TSRMLS_CC);
+	le_wxUpdateUIEvent = zend_register_list_destructors_ex(php_wxUpdateUIEvent_destruction_handler,NULL, le_wxUpdateUIEvent_name ,module_number);
 
 	INIT_CLASS_ENTRY(cf, PHP_wxStringInputStream_NAME , php_wxStringInputStream_functions);
 	php_wxStringInputStream_entry = zend_register_internal_class(&cf TSRMLS_CC);

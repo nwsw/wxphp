@@ -9,6 +9,12 @@
 	if(!$clo)
 		$clo = array();
 		
+	// You can use this space to manually re-adjust bad settings that are pre-existing in the current serialized classes.out 
+	//unset($clo['wxListCtrl']['OnGetItemText']);
+	//unset($clo['wxListCtrl']['SetItemCount']);
+	//unset($clo['wxListCtrl']['_pure_virtual']);
+	//unset($clo['wxListCtrl']['_const']);
+
 	$selClass = null;
 	
 	class myFrame extends wxFrame 
@@ -256,7 +262,7 @@
 			
 			$sz2 		= new wxBoxSizer(wxVERTICAL);
 			$lst 		= new wxCheckListBox($dummy,-1);
-			$lst2 		= new wxCheckListBox($dummy,-1);
+			$lst2 	= new wxCheckListBox($dummy,-1);
 			$lst->Connect(wxEVT_COMMAND_CHECKLISTBOX_TOGGLED,array($this,"checkLst"));
 			$lst2->Connect(wxEVT_COMMAND_CHECKLISTBOX_TOGGLED,array($this,"saveImplements"));
 			$sz2->Add($lst2,1,wxEXPAND | wxALL);
