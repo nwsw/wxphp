@@ -13,7 +13,7 @@
 	//unset($clo['wxListCtrl']['OnGetItemText']);
 	//unset($clo['wxListCtrl']['SetItemCount']);
 	//unset($clo['wxListCtrl']['_pure_virtual']);
-	//unset($clo['wxListCtrl']['_const']);
+	//unset($clo['wxTopLevelWindowBase']['_pure_virtual']);
 
 	$selClass = null;
 	

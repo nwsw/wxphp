@@ -70,6 +70,7 @@ static function_entry php_wxFrame_functions[] = {
         PHP_ME(php_wxFrameBase, SetMenuBar, NULL,ZEND_ACC_PUBLIC)
         PHP_ME(php_wxTopLevelWindowBase, SetIcon, NULL,ZEND_ACC_PUBLIC)
         PHP_ME(php_wxTopLevelWindowBase, SetIcons, NULL,ZEND_ACC_PUBLIC)
+        PHP_ME(php_wxTopLevelWindowBase, SetTitle, NULL,ZEND_ACC_PUBLIC)
 	{ NULL, NULL, NULL }
 };
 extern zend_class_entry *php_wxEvent_entry;
@@ -1198,6 +1199,7 @@ extern int le_wxTopLevelWindowBase;
 static function_entry php_wxTopLevelWindowBase_functions[] = {
         PHP_ME(php_wxTopLevelWindowBase, SetIcon, NULL,ZEND_ACC_PUBLIC)
         PHP_ME(php_wxTopLevelWindowBase, SetIcons, NULL,ZEND_ACC_PUBLIC)
+        PHP_ME(php_wxTopLevelWindowBase, SetTitle, NULL,ZEND_ACC_PUBLIC)
 	{ NULL, NULL, NULL }
 };
 extern zend_class_entry *php_wxSplitterWindow_entry;
@@ -2308,6 +2310,7 @@ static function_entry php_wxFileDialog_functions[] = {
         PHP_ME(php_wxDialog, IsModal, NULL,ZEND_ACC_PUBLIC)
         PHP_ME(php_wxTopLevelWindowBase, SetIcon, NULL,ZEND_ACC_PUBLIC)
         PHP_ME(php_wxTopLevelWindowBase, SetIcons, NULL,ZEND_ACC_PUBLIC)
+        PHP_ME(php_wxTopLevelWindowBase, SetTitle, NULL,ZEND_ACC_PUBLIC)
         PHP_ME(php_wxWindow, Create, NULL,ZEND_ACC_PUBLIC)
         PHP_ME(php_wxWindow, Destroy, NULL,ZEND_ACC_PUBLIC)
         PHP_ME(php_wxWindow, Raise, NULL,ZEND_ACC_PUBLIC)
@@ -2376,6 +2379,7 @@ static function_entry php_wxDialog_functions[] = {
         PHP_ME(php_wxDialog, IsModal, NULL,ZEND_ACC_PUBLIC)
         PHP_ME(php_wxTopLevelWindowBase, SetIcon, NULL,ZEND_ACC_PUBLIC)
         PHP_ME(php_wxTopLevelWindowBase, SetIcons, NULL,ZEND_ACC_PUBLIC)
+        PHP_ME(php_wxTopLevelWindowBase, SetTitle, NULL,ZEND_ACC_PUBLIC)
         PHP_ME(php_wxWindow, Create, NULL,ZEND_ACC_PUBLIC)
         PHP_ME(php_wxWindow, Destroy, NULL,ZEND_ACC_PUBLIC)
         PHP_ME(php_wxWindow, Raise, NULL,ZEND_ACC_PUBLIC)
@@ -2444,6 +2448,7 @@ static function_entry php_wxMessageDialog_functions[] = {
         PHP_ME(php_wxDialog, IsModal, NULL,ZEND_ACC_PUBLIC)
         PHP_ME(php_wxTopLevelWindowBase, SetIcon, NULL,ZEND_ACC_PUBLIC)
         PHP_ME(php_wxTopLevelWindowBase, SetIcons, NULL,ZEND_ACC_PUBLIC)
+        PHP_ME(php_wxTopLevelWindowBase, SetTitle, NULL,ZEND_ACC_PUBLIC)
         PHP_ME(php_wxWindow, Create, NULL,ZEND_ACC_PUBLIC)
         PHP_ME(php_wxWindow, Destroy, NULL,ZEND_ACC_PUBLIC)
         PHP_ME(php_wxWindow, Raise, NULL,ZEND_ACC_PUBLIC)
@@ -2978,6 +2983,7 @@ static function_entry php_wxSplashScreen_functions[] = {
         PHP_ME(php_wxFrameBase, SetMenuBar, NULL,ZEND_ACC_PUBLIC)
         PHP_ME(php_wxTopLevelWindowBase, SetIcon, NULL,ZEND_ACC_PUBLIC)
         PHP_ME(php_wxTopLevelWindowBase, SetIcons, NULL,ZEND_ACC_PUBLIC)
+        PHP_ME(php_wxTopLevelWindowBase, SetTitle, NULL,ZEND_ACC_PUBLIC)
 	{ NULL, NULL, NULL }
 };
 extern zend_class_entry *php_wxCalendarCtrl_entry;
@@ -3432,6 +3438,7 @@ static function_entry php_wxDirDialog_functions[] = {
         PHP_ME(php_wxDialog, IsModal, NULL,ZEND_ACC_PUBLIC)
         PHP_ME(php_wxTopLevelWindowBase, SetIcon, NULL,ZEND_ACC_PUBLIC)
         PHP_ME(php_wxTopLevelWindowBase, SetIcons, NULL,ZEND_ACC_PUBLIC)
+        PHP_ME(php_wxTopLevelWindowBase, SetTitle, NULL,ZEND_ACC_PUBLIC)
         PHP_ME(php_wxWindow, Create, NULL,ZEND_ACC_PUBLIC)
         PHP_ME(php_wxWindow, Destroy, NULL,ZEND_ACC_PUBLIC)
         PHP_ME(php_wxWindow, Raise, NULL,ZEND_ACC_PUBLIC)
@@ -3846,6 +3853,11 @@ static function_entry php_wxStyledTextCtrl_functions[] = {
         PHP_ME(php_wxStyledTextCtrl, TextWidth, NULL,ZEND_ACC_PUBLIC)
         PHP_ME(php_wxStyledTextCtrl, SetModEventMask, NULL,ZEND_ACC_PUBLIC)
         PHP_ME(php_wxStyledTextCtrl, GetModEventMask, NULL,ZEND_ACC_PUBLIC)
+        PHP_ME(php_wxStyledTextCtrl, SetTargetStart, NULL,ZEND_ACC_PUBLIC)
+        PHP_ME(php_wxStyledTextCtrl, GetTargetStart, NULL,ZEND_ACC_PUBLIC)
+        PHP_ME(php_wxStyledTextCtrl, SetTargetEnd, NULL,ZEND_ACC_PUBLIC)
+        PHP_ME(php_wxStyledTextCtrl, GetTargetEnd, NULL,ZEND_ACC_PUBLIC)
+        PHP_ME(php_wxStyledTextCtrl, GetCurrentPos, NULL,ZEND_ACC_PUBLIC)
         PHP_ME(php_wxWindow, Show, NULL,ZEND_ACC_PUBLIC)
         PHP_ME(php_wxWindow, Create, NULL,ZEND_ACC_PUBLIC)
         PHP_ME(php_wxWindow, Destroy, NULL,ZEND_ACC_PUBLIC)
