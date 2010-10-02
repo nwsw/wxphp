@@ -219,6 +219,10 @@ extern int le_wxSize;
 
 static function_entry php_wxSize_functions[] = {
         PHP_ME(php_wxSize, __construct, NULL,ZEND_ACC_PUBLIC|ZEND_ACC_CTOR)
+        PHP_ME(php_wxSize, SetWidth, NULL,ZEND_ACC_PUBLIC)
+        PHP_ME(php_wxSize, SetHeight, NULL,ZEND_ACC_PUBLIC)
+        PHP_ME(php_wxSize, GetWidth, NULL,ZEND_ACC_PUBLIC)
+        PHP_ME(php_wxSize, GetHeight, NULL,ZEND_ACC_PUBLIC)
 	{ NULL, NULL, NULL }
 };
 extern zend_class_entry *php_wxToolBar_entry;
@@ -2878,6 +2882,14 @@ extern int le_wxRect;
 
 static function_entry php_wxRect_functions[] = {
         PHP_ME(php_wxRect, __construct, NULL,ZEND_ACC_PUBLIC|ZEND_ACC_CTOR)
+        PHP_ME(php_wxRect, GetX, NULL,ZEND_ACC_PUBLIC)
+        PHP_ME(php_wxRect, SetX, NULL,ZEND_ACC_PUBLIC)
+        PHP_ME(php_wxRect, GetY, NULL,ZEND_ACC_PUBLIC)
+        PHP_ME(php_wxRect, SetY, NULL,ZEND_ACC_PUBLIC)
+        PHP_ME(php_wxRect, GetWidth, NULL,ZEND_ACC_PUBLIC)
+        PHP_ME(php_wxRect, SetWidth, NULL,ZEND_ACC_PUBLIC)
+        PHP_ME(php_wxRect, GetHeight, NULL,ZEND_ACC_PUBLIC)
+        PHP_ME(php_wxRect, SetHeight, NULL,ZEND_ACC_PUBLIC)
 	{ NULL, NULL, NULL }
 };
 extern zend_class_entry *php_wxBrush_entry;
@@ -4513,6 +4525,41 @@ static function_entry php_wxUpdateUIEvent_functions[] = {
         PHP_ME(php_wxEvent, ShouldPropagate, NULL,ZEND_ACC_PUBLIC)
         PHP_ME(php_wxEvent, StopPropagation, NULL,ZEND_ACC_PUBLIC)
         PHP_ME(php_wxEvent, ResumePropagation, NULL,ZEND_ACC_PUBLIC)
+	{ NULL, NULL, NULL }
+};
+extern zend_class_entry *php_wxFocusEvent_entry;
+void php_wxFocusEvent_destruction_handler(zend_rsrc_list_entry * TSRMLS_DC);
+
+#define PHP_wxFocusEvent_NAME "wxFocusEvent"
+#define le_wxFocusEvent_name  "native wxFocusEvent"
+
+class wxFocusEvent_php : public wxFocusEvent{
+	public:
+	zval *evnArray;
+	void onEvent(wxEvent& evnt);
+	void ***tsrm_ls;
+	zval* phpObj;
+};
+
+
+extern int le_wxFocusEvent;
+
+static function_entry php_wxFocusEvent_functions[] = {
+        PHP_ME(php_wxEvent, GetId, NULL,ZEND_ACC_PUBLIC)
+        PHP_ME(php_wxEvent, SetEventType, NULL,ZEND_ACC_PUBLIC)
+        PHP_ME(php_wxEvent, GetEventType, NULL,ZEND_ACC_PUBLIC)
+        PHP_ME(php_wxEvent, GetEventObject, NULL,ZEND_ACC_PUBLIC)
+        PHP_ME(php_wxEvent, SetEventObject, NULL,ZEND_ACC_PUBLIC)
+        PHP_ME(php_wxEvent, GetTimestamp, NULL,ZEND_ACC_PUBLIC)
+        PHP_ME(php_wxEvent, SetTimestamp, NULL,ZEND_ACC_PUBLIC)
+        PHP_ME(php_wxEvent, SetId, NULL,ZEND_ACC_PUBLIC)
+        PHP_ME(php_wxEvent, Skip, NULL,ZEND_ACC_PUBLIC)
+        PHP_ME(php_wxEvent, GetSkipped, NULL,ZEND_ACC_PUBLIC)
+        PHP_ME(php_wxEvent, IsCommandEvent, NULL,ZEND_ACC_PUBLIC)
+        PHP_ME(php_wxEvent, ShouldPropagate, NULL,ZEND_ACC_PUBLIC)
+        PHP_ME(php_wxEvent, StopPropagation, NULL,ZEND_ACC_PUBLIC)
+        PHP_ME(php_wxEvent, ResumePropagation, NULL,ZEND_ACC_PUBLIC)
+        PHP_ME(php_wxObject, IsKindOf, NULL,ZEND_ACC_PUBLIC)
 	{ NULL, NULL, NULL }
 };
 extern zend_class_entry *php_wxStringInputStream_entry;
